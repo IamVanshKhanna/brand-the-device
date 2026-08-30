@@ -9,6 +9,14 @@ const DATA = {
   ownerName: "Vansh",
   ownerLink: "https://x.com/vanshuETH",  // human's real handle
 
+  // Backend seam — set these at launch to go live (null = local demo mode):
+  //   apiBase:          e.g. "https://notghostingyou-api.workers.dev"
+  //                     (serves: GET /bids, GET /history, POST /bid, POST /logo)
+  //   stripePublicKey:  Stripe publishable key — turns the button into a real
+  //                     20% refundable deposit checkout instead of a demo bid.
+  apiBase: null,
+  stripePublicKey: null,
+
   // Auction close (used for the countdown). ISO string.
   closing: "2026-09-30T20:00:00Z",
 

@@ -522,6 +522,14 @@
     reader.readAsDataURL(file);
   });
 
+  (function () {
+    var submitBtn = document.getElementById("bidSubmit");
+    var note = submitBtn ? submitBtn.nextElementSibling : null;
+    if (DATA.stripePublicKey && submitBtn) {
+      submitBtn.textContent = "Place bid — pay 20% deposit";
+      if (note) note.textContent = "You'll be charged a 20% refundable deposit. Refunded in full if you're outbid; counts toward your total if you win.";
+    }
+  })();
   document.getElementById("bidSubmit").addEventListener("click", function () {
     if (!activeSpot) return;
     var sponsor = document.getElementById("bidSponsor").value.trim();
