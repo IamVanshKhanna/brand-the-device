@@ -124,7 +124,7 @@
     <div class="wrap">
       <p class="eyebrow">Live auction</p>
       <h2>The auction, live.</h2>
-      <p class="muted">Every spot shows its current top bid. Four big directional spots — N, E, S, W — plus eight <strong>4×4 cm corner squares</strong>. Spots from <strong>A$250 square</strong> · <strong>A$800 South</strong> · <strong>A$1,000 East/West</strong>, with a bonus premium for the spot above the Apple logo.</p>
+      <p class="muted">Every spot shows its current top bid and its max-tier target. Four big directional spots — N, E, S, W — plus eight <strong>4×4 cm corner squares</strong>. Spots start at <strong>A$250</strong> a corner, <strong>A$800</strong> South, <strong>A$1,000</strong> East/West, and <strong>A$1,200</strong> for the Marquee above the Apple logo.</p>
 
       <div class="spacer"></div>
 
@@ -252,7 +252,7 @@
       <div class="specs-grid">
         <div class="config-card">
           <div class="config-title">MacBook Pro 16", Silver</div>
-          <div class="config-price" id="goalConfigPrice">≈ A$11,833</div>
+          <div class="config-price" id="goalConfigPrice">≈ A$11,224</div>
           <table class="spec-table">
             <tbody>
               <tr><td>Chip</td><td>Apple M5 Max — 18-core CPU, 40-core GPU, 16-core Neural Engine</td></tr>
@@ -358,7 +358,42 @@
         <li><strong>What:</strong> funding a 16-inch MacBook Pro (M5 Max, 128GB / 2TB SSD, nano-texture) by auctioning its 12 lid spots before it's bought — 4 directional banners plus 8 corner squares.</li>
         <li><strong>Why it's new:</strong> one fixed config — no tiers, no lesser laptop; the developer tops up any shortfall from his own money; A$6,000 floor with full refunds; full P&L published at the end.</li>
         <li><strong>Hook:</strong> "bought before he owns it" — the machine's price is decided by the stickers on its lid.</li>
-        <li><strong>Status:</strong> demo site, launch pending (domain + payments). For an interview, message me on X — happy to explain the numbers on camera.</li>
+        <li><strong>Status:</strong> live and taking demo bids at notghostingyou.xyz — real deposits switch on at launch. For an interview, message me on X — happy to explain the numbers on camera.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section id="terms">
+    <div class="wrap legal">
+      <p class="eyebrow">Terms</p>
+      <h2>Participation terms.</h2>
+      <p class="muted">These are the plain-English terms that govern bidding on Brand the Device. Real deposits switch on at launch; until then bids are demos and no money is taken.</p>
+      <ul class="legal-list">
+        <li><strong>The auction.</strong> 12 ad spots on the lid of one 16-inch MacBook Pro M5 Max (128GB / 2TB, nano-texture). The highest accepted bid per spot at the close wins. The close time is shown on the page countdown.</li>
+        <li><strong>Funding, not ownership.</strong> The founder does not currently own the laptop. All proceeds go toward buying it; if the raise falls short, the founder tops up the difference so the exact listed machine ships.</li>
+        <li><strong>Floor &amp; refunds.</strong> A$6,000 is the go/no-go floor. If the auction settles below it, every deposit is refunded in full and no machine is purchased. Above the floor, deposits are non-refundable except as stated here.</li>
+        <li><strong>Deposits.</strong> A winning bid requires a 20% refundable deposit at the time you bid. If you are outbid, your deposit is returned in full. If you win, it counts toward your total and you're invoiced for the remainder.</li>
+        <li><strong>Manual approval.</strong> The founder reviews every sponsor and may refuse a bid for any reason; refused bids are refunded in full. The founder has final say on what appears on the lid.</li>
+        <li><strong>Your logo.</strong> You retain all rights to your logo. You grant the founder a limited licence to print it as a vinyl sticker on this one lid and show it in photos/posts of that lid. You approve a placement mock before printing.</li>
+        <li><strong>No guarantee of results.</strong> The founder makes no promise of impressions, clicks, ROI, or audience size. You're buying placement on a real, travelling laptop, not advertising metrics.</li>
+        <li><strong>Tax.</strong> Amounts are in AUD. The founder is responsible for Australian income tax on the raise; any GST obligations (if registered) are handled separately. Sponsors should seek their own tax advice.</li>
+        <li><strong>Governing law.</strong> These terms are governed by the laws of Victoria, Australia.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="muted-band" id="privacy">
+    <div class="wrap legal">
+      <p class="eyebrow">Privacy</p>
+      <h2>What we collect, and why.</h2>
+      <ul class="legal-list">
+        <li><strong>What you give us.</strong> When you bid: sponsor/company name, email, website URL (optional), logo file, and bid amount.</li>
+        <li><strong>How we use it.</strong> Email is used for outbid alerts and the payment link. Sponsor name, website and logo are shown publicly on this page and on the laptop lid if your bid wins and is approved.</li>
+        <li><strong>What we don't do.</strong> We don't sell your data, and we don't run third-party ad trackers on the bid form.</li>
+        <li><strong>Storage.</strong> Until launch, bids are stored locally in your browser as a demo. At launch they're stored server-side to run the auction; you can request deletion of your personal data by messaging the founder on X.</li>
+        <li><strong>Cookies.</strong> The site stores only local preferences (theme and currency choice) in your browser. No tracking cookies.</li>
       </ul>
     </div>
   </section>
@@ -388,8 +423,12 @@
       </label>
       <img id="logoPreview" class="logo-preview hidden" alt="Logo preview" />
       <p class="small muted">SVG vector preferred, or transparent PNG at print quality · max 256 KB · you approve a placement mock before printing.</p>
-      <button class="btn block" id="bidSubmit" type="button">Place bid — 20% deposit on card</button>
-      <p class="small muted">Payment capture is stubbed until launch — this is a demo of the flow.</p>
+      <label class="agree">
+        <input id="bidAgree" type="checkbox" />
+        <span>I agree to the <a href="#terms" target="_blank" rel="noopener">Terms</a> and <a href="#privacy" target="_blank" rel="noopener">Privacy</a> policy.</span>
+      </label>
+      <button class="btn block" id="bidSubmit" type="button">Place bid</button>
+      <p class="small muted">This is a demo bid — no card is charged. Real 20% refundable deposits switch on at launch.</p>
     </div>
   </section>
 
@@ -397,6 +436,7 @@
     <div class="wrap">
       <p>This is a one-man operation. One fixed travel machine, every number public, and if the raise comes up short I make up the difference myself. I don't own the laptop yet — your bids are what put it in my bag.</p>
       <p class="small">Brand the Device is not affiliated with, endorsed by, or sponsored by Apple Inc. MacBook Pro and the Apple logo are trademarks of Apple Inc., used nominatively.</p>
+      <p class="small"><a href="#terms">Terms</a> · <a href="#privacy">Privacy</a></p>
       <p class="small">Disclaimer: I currently don't own this laptop. All proceeds from the lid advertising spaces fund this device; the aim is to use it as a travel laptop on the go, with photos on my profile and posts forming the basis of the marketing.</p>
     </div>
   </footer>

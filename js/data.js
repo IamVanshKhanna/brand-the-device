@@ -21,7 +21,7 @@ const DATA = {
   // The ONE fixed goal — no tiers. If the raise falls short, the developer
   // tops up the difference from his own money, so the lid is always this exact
   // machine: M5 Max, 128GB / 2TB, nano-texture.
-  // RRP ≈ A$11,833 (apple.com/au, 16-inch M5 Max 18-core/40-core, Silver,
+  // RRP ≈ A$11,224 (apple.com/au, 16-inch M5 Max 18-core/40-core, Silver,
   // nano-texture). grossToRaise = retail ÷ (1 − tax) = retail ÷ 0.675.
   floor: 6000, // go / no-go — full refund below this, no Mac.
   goal: {
@@ -31,8 +31,6 @@ const DATA = {
   },
   topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
   stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
-
-  reasonsToRetail: "RRP estimate from apple.com/au using the verified 48GB/2TB anchor (A$7,999) plus Apple's AU memory, storage, and nano-texture steps; quoted '≈ A$'; exact price locked when the auction closes with a link to the configurator.",
 
   // 12 spots on a 3×3 sector layout of the lid: the four directional spots
   // (N / E / S / W) are the big ones; each corner splits into two 4×4 cm

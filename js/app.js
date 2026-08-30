@@ -447,6 +447,8 @@
     document.getElementById("bidEmail").value = "";
     document.getElementById("bidUrl").value = "";
     document.getElementById("bidLogo").value = "";
+    var agree = document.getElementById("bidAgree");
+    if (agree) agree.checked = false;
     var preview = document.getElementById("logoPreview");
     preview.classList.add("hidden");
     preview.removeAttribute("src");
@@ -527,6 +529,8 @@
     var email = document.getElementById("bidEmail").value.trim();
     var url = document.getElementById("bidUrl").value.trim();
     if (!sponsor) { alert("Enter a sponsor / company name."); return; }
+    var agree = document.getElementById("bidAgree");
+    if (agree && !agree.checked) { alert("Please agree to the Terms and Privacy policy to place a bid."); return; }
     var parsed = parseFloat(rawAmount);
     if (!/^\d+([.,]\d+)?$/.test(rawAmount)) { alert("Enter a bid amount."); return; }
     var amount = Math.round(toAud(parsed)); // always settle in AUD
@@ -567,15 +571,21 @@
   var ownerLink = document.getElementById("ownerLink");
   if (ownerLink && DATA.ownerLink) ownerLink.href = DATA.ownerLink;
 
-  document.getElementById("resetBids").addEventListener("click", function () {
-    if (!confirm("Reset demo bids and history back to the seeded state?")) return;
-    var s = makeSeed();
-    bids = s.bids;
-    save(bids);
-    bidHistory = s.history;
-    saveHistory();
-    renderSpots(); renderTiers(); renderTierBars(); renderBids();
-  });
+  var resetBtn = document.getElementById("resetBids");
+  if (resetBtn) {
+    if (DATA.live) { resetBtn.style.display = "none"; }
+    else {
+      resetBtn.addEventListener("click", function () {
+        if (!confirm("Reset demo bids and history back to the seeded state?")) return;
+        var s = makeSeed();
+        bids = s.bids;
+        save(bids);
+        bidHistory = s.history;
+        saveHistory();
+        renderSpots(); renderTiers(); renderTierBars(); renderBids();
+      });
+    }
+  }
 
   /* ---------- currency view (display-only; real deposits settle in AUD) ---------- */
   function setCcy(code) {

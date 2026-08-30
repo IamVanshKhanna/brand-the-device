@@ -374,6 +374,18 @@ p { margin: 10px 0; }
 .press-list li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; font-size: 0.95rem; color: var(--muted); }
 .press-list li strong { color: var(--text); }
 
+/* Terms / Privacy */
+.legal { max-width: 800px; }
+.legal h2 { margin-top: 4px; }
+.legal-list { display: flex; flex-direction: column; gap: 10px; padding: 0; list-style: none; margin-top: 12px; }
+.legal-list li { padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+.legal-list li strong { color: var(--text); }
+
+/* Modal agree checkbox */
+.modal-card .agree { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: var(--muted); margin: 14px 0 4px; }
+.modal-card .agree input { width: auto; margin-top: 3px; flex: none; }
+.modal-card .agree a { color: var(--accent-2); }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.85rem; color: var(--muted); }
 footer p { margin: 4px 0; }
