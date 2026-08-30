@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS bids (
   amount     INTEGER NOT NULL,          -- AUD cents (settle currency)
   email      TEXT NOT NULL,
   url        TEXT,
-  logo_key   TEXT NOT NULL,             -- R2 object key
+  logo_data  TEXT NOT NULL,             -- base64 data URL (stored in D1, no R2)
   bidder_id  TEXT NOT NULL,             -- opaque token returned to bidder for identity
   created_at TEXT NOT NULL
 );

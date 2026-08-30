@@ -27,7 +27,7 @@ export default {
 
       if (path === "/bids" && method === "GET") {
         const { results } = await env.DB.prepare(
-          "SELECT spot_id, sponsor, amount, url, logo_key FROM bids"
+          "SELECT spot_id, sponsor, amount, url, logo_data FROM bids"
         ).all();
         const out = {};
         for (const r of results || []) {
@@ -35,7 +35,7 @@ export default {
             sponsor: r.sponsor,
             amount: r.amount,
             url: r.url,
-            logoUrl: `${url.origin}/logo/${r.logo_key}`,
+            logo: r.logo_data,
           };
         }
         return json(out);
@@ -69,12 +69,6 @@ export default {
           return json({ error: `Minimum bid is A$${(minBid / 100).toFixed(2)}.` }, 409);
         }
 
-        const logoKey = `${spotId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-        const logoBytes = base64ToBytes(logo);
-        await env.LOGOS.put(logoKey, logoBytes, {
-          httpMetadata: { contentType: detectMime(logo) },
-        });
-
         const prev = await env.DB.prepare(
           "SELECT email FROM bids WHERE spot_id = ?"
         ).bind(spotId).first();
@@ -82,13 +76,13 @@ export default {
         const bidderId = crypto.randomUUID();
         const now = new Date().toISOString();
         await env.DB.prepare(
-          `INSERT INTO bids (spot_id, sponsor, amount, email, url, logo_key, bidder_id, created_at)
+          `INSERT INTO bids (spot_id, sponsor, amount, email, url, logo_data, bidder_id, created_at)
            VALUES (?,?,?,?,?,?,?,?)
            ON CONFLICT(spot_id) DO UPDATE SET
              sponsor=excluded.sponsor, amount=excluded.amount, email=excluded.email,
-             url=excluded.url, logo_key=excluded.logo_key, bidder_id=excluded.bidder_id,
+             url=excluded.url, logo_data=excluded.logo_data, bidder_id=excluded.bidder_id,
              created_at=excluded.created_at`
-        ).bind(spotId, sponsor, amount, email, url || null, logoKey, bidderId, now).run();
+        ).bind(spotId, sponsor, amount, email, url || null, logo, bidderId, now).run();
 
         await env.DB.prepare(
           "INSERT INTO history (spot_id, sponsor, amount, email, ts) VALUES (?,?,?,?,?)"
@@ -103,16 +97,7 @@ export default {
           }
         }
 
-        return json({ ok: true, bidderId, logoUrl: `${url.origin}/logo/${logoKey}` });
-      }
-
-      if (path.startsWith("/logo/") && method === "GET") {
-        const key = path.slice(6);
-        const obj = await env.LOGOS.get(key);
-        if (!obj) return new Response("Not found", { status: 404 });
-        return new Response(obj.body, {
-          headers: { "Content-Type": obj.httpMetadata?.contentType || "image/png" },
-        });
+        return json({ ok: true, bidderId });
       }
 
       if (path === "/deposit" && method === "POST") {
@@ -177,24 +162,6 @@ export default {
     }
   },
 };
-
-function base64ToBytes(dataUrl) {
-  const comma = dataUrl.indexOf(",");
-  const b64 = comma >= 0 ? dataUrl.slice(comma + 1) : dataUrl;
-  const bin = atob(b64);
-  const bytes = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-  return bytes;
-}
-
-function detectMime(dataUrl) {
-  if (dataUrl.startsWith("data:")) {
-    const m = dataUrl.match(/^data:([^;,]+)/);
-    if (m) return m[1];
-  }
-  if (dataUrl.startsWith("%3Csvg") || dataUrl.includes("<svg")) return "image/svg+xml";
-  return "image/png";
-}
 
 function checkAuth(request, env) {
   const tok = request.headers.get("X-Auth-Token");

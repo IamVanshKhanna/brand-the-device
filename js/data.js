@@ -14,8 +14,8 @@ const DATA = {
   //                     (serves: GET /bids, GET /history, POST /bid, POST /logo)
   //   stripePublicKey:  Stripe publishable key — turns the button into a real
   //                     20% refundable deposit checkout instead of a demo bid.
-  apiBase: null,
-  stripePublicKey: null,
+  apiBase: "https://notghostingyou-api.vanshkhanna416.workers.dev",
+  stripePublicKey: null,  // set Stripe publishable key when ready to enable deposits
 
   // Auction close (used for the countdown). ISO string.
   closing: "2026-09-30T20:00:00Z",
