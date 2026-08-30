@@ -3,18 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brand the Device — 16-inch MacBook lid auction</title>
-  <meta name="description" content="Your brand, on my Mac. Auctioning the 12 lid spots of a 16-inch MacBook Pro M5 Max (128GB, 2TB, nano-texture). A$6,000 minimum or full refund; the developer tops up any shortfall." />
+  <title>Brand the Device — fund my travel MacBook, one lid at a time</title>
+  <meta name="description" content="I don't own this MacBook yet. 12 ad spaces on a 16-inch MacBook Pro M5 Max — your bid funds the laptop, then it travels with me as my on-the-go machine and your logo shows up in every photo." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://notghostingyou.xyz/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Brand the Device — your logo on my MacBook" />
-  <meta property="og:description" content="Auctioning 12 lid spots on a 16-inch MacBook Pro (M5 Max, 128GB / 2TB, nano-texture). A$6,000 minimum, full refund below it — the developer tops up the rest." />
-  <meta property="og:image" content="og-image.png" />
+  <meta property="og:locale" content="en_AU" />
+  <meta property="og:title" content="Brand the Device — your ad buys my next MacBook, then travels with me" />
+  <meta property="og:description" content="12 ad spaces on a 16-inch MacBook Pro M5 Max I haven't bought yet. Your bid funds the laptop; then it travels with me and your logo is in every photo I post." />
   <meta property="og:url" content="https://notghostingyou.xyz/" />
+  <meta property="og:image" content="https://notghostingyou.xyz/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Brand the Device — pre-order a sticker spot on a MacBook Pro lid that will travel the world" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Brand the Device — your logo on my MacBook" />
-  <meta name="twitter:description" content="12 lid spots on a 16-inch MacBook Pro. A$6,000 minimum, full refund below it. Your logo rides with a founder." />
-  <meta name="twitter:image" content="og-image.png" />
+  <meta name="twitter:title" content="Brand the Device — your ad buys my next MacBook, then travels with me" />
+  <meta name="twitter:description" content="12 ad spaces on a 16-inch MacBook Pro I haven't bought yet. Your bid funds it; then it travels with me and your logo is in every photo." />
+  <meta name="twitter:image" content="https://notghostingyou.xyz/og-image.png" />
+  <meta name="twitter:image:alt" content="Brand the Device — pre-order a sticker spot on a MacBook Pro lid that will travel the world" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Brand the Device — MacBook lid auction",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "startDate": "2026-08-30T00:00:00Z",
+    "endDate": "2026-09-30T20:00:00Z",
+    "description": "Pre-ordering 12 lid sticker spots on a 16-inch MacBook Pro M5 Max (128GB / 2TB, nano-texture) the founder hasn't bought yet. A$6,000 floor with full refunds below it; proceeds fund the laptop, which then travels as the founder's on-the-go machine.",
+    "url": "https://notghostingyou.xyz/",
+    "organizer": { "@type": "Person", "name": "Vansh", "url": "https://x.com/vanshuETH" },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "AUD",
+      "lowPrice": 250,
+      "highPrice": 1200,
+      "availability": "https://schema.org/InStock",
+      "url": "https://notghostingyou.xyz/#spots"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -42,8 +72,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <h1>Your brand, on my Mac.</h1>
-      <p class="lede">Your logo travels with me on a founder's best friend: the 16-inch MacBook.</p>
+      <h1>I don't own this MacBook yet. Your ad on its lid will buy it.</h1>
+      <p class="lede">Brand the Device is a one-lid auction: 12 ad spaces on a 16-inch MacBook Pro M5 Max. Every bid funds the laptop — then it becomes my everyday travel machine, and the photos I post put your logo in the frame.</p>
 
       <div class="hero-score">
         <div class="raised" id="heroRaised">A$0</div>
@@ -63,16 +93,29 @@
         <a href="#how" class="btn ghost">How it works ›</a>
       </div>
 
-      <div class="countdown" id="countdown">Auction closes in —</div>
-      <p class="ticker small muted" id="ticker"></p>
+        <div class="countdown" id="countdown" role="timer" aria-label="Auction countdown">Auction closes in —</div>
+        <p class="ticker small muted" id="ticker" aria-live="polite"></p>
     </div>
   </section>
 
   <!-- META BAND -->
   <section class="meta-band">
     <div class="wrap">
-      <p class="eyebrow">Everyone knows that logo in the middle. The space around it is the part that's for sale.</p>
-      <p class="muted">· 12 spots on the 16-inch lid — N, E, S, W big spots plus 8 corner squares · one fixed machine — M5 Max, 128GB / 2TB, nano-texture · still time to outbid any spot ·</p>
+      <p class="eyebrow">Everyone knows that logo in the middle. The space around it is the part that's for sale — and it's about to travel.</p>
+      <p class="muted">· 12 spots on the 16-inch lid — N, E, S, W big spots plus 8 corner squares · one fixed machine — M5 Max, 128GB / 2TB, nano-texture · your bid funds it, then it goes on the road with me ·</p>
+    </div>
+  </section>
+
+  <!-- THE HONEST BIT — story + disclaimer -->
+  <section class="story-band" id="story">
+    <div class="wrap">
+      <p class="eyebrow">The honest bit</p>
+      <h2>I don't own this laptop. You'd be buying it.</h2>
+      <p class="muted">Right now it's a spec sheet, not a machine in my bag. This auction is the pre-order: every ad space you take on the lid is a slice of the laptop itself. The A$6,000 floor pays for it; everything above funds the top spec.</p>
+      <p class="muted">Once it lands, it becomes my everyday <strong>travel laptop — the one in my bag on trains, in airports, at cafés, on the road</strong>. I post those moments from my profile, and your logo is in the frame. That's the marketing: not a banner, but your brand, travelling.</p>
+      <div class="disclaimer">
+        <strong>Disclaimer.</strong> I currently don't own this laptop. All proceeds from the advertising spaces on the lid go toward funding this device. The aim is to use it as a travel laptop on the go, with photos on my profile and posts — those posts form the basis of the marketing. That's the story it's built on.
+      </div>
     </div>
   </section>
 
@@ -88,7 +131,7 @@
       <div class="lid-stage">
         <p class="muted small">Live auction ⇄ Final look — swipe, or tap any spot to place a bid.</p>
 
-        <div class="carousel" id="lidCarousel">
+        <div class="carousel" id="lidCarousel" role="region" aria-roledescription="carousel" aria-label="Lid preview: live auction and final look">
           <div class="carousel-track" id="carouselTrack">
 
             <div class="carousel-slide active" data-view="back">
@@ -149,6 +192,31 @@
     </div>
   </section>
 
+  <!-- SECTION — WHY SPONSOR (the travel-angle value prop) -->
+  <section class="muted-band" id="why">
+    <div class="wrap">
+      <p class="eyebrow">Why put your logo on a laptop lid?</p>
+      <h2>Because it goes places a banner ad never can.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>It travels</h3>
+          <p>Your logo isn't stuck on a webpage. It's on a real machine, in real places — cafés, terminals, co-working desks, the seat-back tray — and in the photos from all of them.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>It's honest</h3>
+          <p>No bots, no fake impressions, no inflated metrics. A real founder, a real laptop, real posts. What you see is the placement.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>It's early</h3>
+          <p>This is iteration 1 of Brand the Device. Early sponsors ride the story from day one — before the machine even exists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 2 — HOW IT WORKS -->
   <section class="muted-band" id="how">
     <div class="wrap">
@@ -168,7 +236,7 @@
         <div class="step">
           <div class="step-n">3</div>
           <h3>Your sticker rides along</h3>
-          <p>I print your logo as a quality die-cut vinyl sticker, and everywhere the MacBook goes, your brand is visible.</p>
+          <p>I print your logo as a quality die-cut vinyl sticker, and as the MacBook travels with me, your brand shows up in person — and in the photos I post from my profile.</p>
         </div>
       </div>
     </div>
@@ -178,7 +246,7 @@
   <section id="specs">
     <div class="wrap">
       <p class="eyebrow">The machine</p>
-      <h2>What the money buys.</h2>
+      <h2>The exact laptop your ads will live on.</h2>
       <p class="muted" id="taxBlurb"></p>
 
       <div class="specs-grid">
@@ -202,7 +270,7 @@
           <div class="tier-grid" id="tierGrid"></div>
           <p class="small muted">
             Prices are launch-day estimates (anchored: M5 Max 40-core at Apple AU).
-            One fixed config — no lesser laptop. If the raise comes up short, I top up the difference from my own money so this exact machine ships either way.
+            One fixed config — no lesser laptop. If the raise comes up short, I top up the difference from my own money so this exact machine ships either way — and becomes my everyday travel laptop.
           </p>
         </div>
       </div>
@@ -218,15 +286,15 @@
       <div class="faq">
         <details>
           <summary>Is this real?</summary>
-          <p>Completely. The MacBook is real (well, imminent), the stickers are real vinyl, and I'll work with it in public places. The only fictional thing is the idea that a laptop lid isn't premium ad inventory.</p>
+          <p>Completely. The MacBook isn't mine yet — that's the whole point: you're funding it. The stickers are real die-cut vinyl, and once it's mine I'll work with it in public places. The only fictional thing is the idea that a laptop lid isn't premium ad inventory.</p>
         </details>
         <details>
           <summary>Why this MacBook?</summary>
-          <p>In short: I need a new laptop, and I'm building for iOS = MacBook. I've been indie hacking on an old, dying machine for a while, and iOS builds without a Mac are just the worst. The 16-inch M5 Max with 128GB and 2TB is the machine I'd actually keep for years.</p>
+          <p>In short: I need a portable powerhouse I can take anywhere — iOS builds, on the go, from trains and airport lounges. I've been indie hacking on an old, dying machine for a while, and iOS builds without a Mac are just the worst. The 16-inch M5 Max with 128GB and 2TB is the machine I'd actually keep for years — and funding it via the lid means the laptop pays for itself in reach.</p>
         </details>
         <details>
           <summary>What do I actually get?</summary>
-          <p>Your brand showing up both on socials and in the real world: a die-cut vinyl sticker of your logo on the lid (visible in public spaces + in my photos), and a spot on this page with a link to your site. I can't promise you impressions or ROI — just that it goes where I work and appears in stuff I post.</p>
+          <p>Your brand showing up both on socials and in the real world: a die-cut vinyl sticker of your logo on the lid (visible in public spaces + in the travel photos I post), and a spot on this page with a link to your site. I can't promise you impressions or ROI — just that it goes where I go, and shows up in what I post.</p>
         </details>
         <details>
           <summary>How does payment work?</summary>
@@ -327,8 +395,9 @@
 
   <footer>
     <div class="wrap">
-      <p>This is a one-man operation. One fixed machine, every number public, and if the raise comes up short I make up the difference myself.</p>
+      <p>This is a one-man operation. One fixed travel machine, every number public, and if the raise comes up short I make up the difference myself. I don't own the laptop yet — your bids are what put it in my bag.</p>
       <p class="small">Brand the Device is not affiliated with, endorsed by, or sponsored by Apple Inc. MacBook Pro and the Apple logo are trademarks of Apple Inc., used nominatively.</p>
+      <p class="small">Disclaimer: I currently don't own this laptop. All proceeds from the lid advertising spaces fund this device; the aim is to use it as a travel laptop on the go, with photos on my profile and posts forming the basis of the marketing.</p>
     </div>
   </footer>
 

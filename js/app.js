@@ -36,10 +36,12 @@
     this.textContent = next === "dark" ? "☀️" : "🌙";
   });
 
-  /* ---------- seed state (bids + organic-looking history) ---------- */
+  /* ---------- seed state (bids + organic-looking history) ----------
+     In live mode (DATA.live === true) the auction starts empty — no demo sponsors. */
   function makeSeed() {
     var bids = {};
     var hist = [];
+    if (DATA.live) return { bids: bids, history: hist };
     var now = Date.now();
     DATA.seed.forEach(function (b, i) {
       bids[b.spotId] = { sponsor: b.sponsor, amount: b.draft };
@@ -51,6 +53,7 @@
 
   /* ---------- bids ---------- */
   function load() {
+    if (DATA.live) { store.setItem(KEY, "{}"); return {}; }
     var raw = store.getItem(KEY);
     if (raw) {
       try { return JSON.parse(raw); } catch (e) { /* reseed */ }
@@ -64,6 +67,7 @@
 
   /* ---------- bid history ---------- */
   function loadHistory() {
+    if (DATA.live) { store.setItem(HIS_KEY, "[]"); return []; }
     var raw = store.getItem(HIS_KEY);
     if (raw) {
       try { return JSON.parse(raw); } catch (e) { /* reseed */ }
@@ -212,6 +216,24 @@
   document.getElementById("carouselPrev").addEventListener("click", function () { carouselShow(carouselIdx - 1); });
   document.getElementById("carouselNext").addEventListener("click", function () { carouselShow(carouselIdx + 1); });
   carouselShow(0);
+
+  /* swipe / drag support (copy promises "swipe") — pointer events cover touch + mouse */
+  (function () {
+    var startX = null, startY = null, tracking = false;
+    function down(x, y) { startX = x; startY = y; tracking = true; }
+    function up(x, y) {
+      if (!tracking || startX === null) { tracking = false; return; }
+      var dx = x - startX, dy = y - startY;
+      tracking = false;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return; // not a horizontal swipe
+      carouselShow(carouselIdx + (dx < 0 ? 1 : -1));
+    }
+    carouselTrack.addEventListener("touchstart", function (e) { var t = e.touches[0]; down(t.clientX, t.clientY); }, { passive: true });
+    carouselTrack.addEventListener("touchend", function (e) { var t = e.changedTouches[0]; up(t.clientX, t.clientY); });
+    carouselTrack.addEventListener("pointerdown", function (e) { down(e.clientX, e.clientY); });
+    carouselTrack.addEventListener("pointerup", function (e) { up(e.clientX, e.clientY); });
+    carouselTrack.addEventListener("pointercancel", function () { tracking = false; });
+  })();
 
   /* ---------- machine + the single goal ---------- */
   function renderTiers() {
@@ -456,7 +478,17 @@
 
   document.getElementById("modalClose").addEventListener("click", closeModal);
   modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeModal(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { closeModal(); return; }
+    // basic focus trap while the bid modal is open
+    if (e.key === "Tab" && !modal.classList.contains("hidden")) {
+      var f = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 
   /* logo upload — validate + preview as it will sit on the lid */
   document.getElementById("bidLogo").addEventListener("change", function () {
@@ -561,5 +593,7 @@
 
   tick();
   countdownTimer = setInterval(tick, 1000);
+  // keep the "Xm ago" ticker honest without a full re-render every second
+  setInterval(renderTicker, 60000);
   renderSpots(); renderTiers(); renderTierBars(); renderBids();
 })();

@@ -29,8 +29,8 @@ const DATA = {
     retail: 11833,
     grossToRaise: 17530,
   },
-  topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised.",
-  stretch: "Every dollar above the goal tops up what the developer keeps.",
+  topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
+  stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
 
   reasonsToRetail: "RRP estimate from apple.com/au using the verified 48GB/2TB anchor (A$7,999) plus Apple's AU memory, storage, and nano-texture steps; quoted '≈ A$'; exact price locked when the auction closes with a link to the configurator.",
 
@@ -59,18 +59,24 @@ const DATA = {
 
   areaOf: { marquee: 84, flank: 72, snipe: 70, mini: 16 },
 
-  blurb: {
-    marquee: "The big one above the Apple logo — the loudest spot on a 16-inch lid.",
-    flank: "Full-tall edge strip along the side, right beside the Apple logo.",
-    snipe: "The wide bottom banner — the part people actually read first in a café.",
-    mini: "Compact 4×4 cm corner square — two per corner. Great for tight, simple logos.",
-  },
+    blurb: {
+      marquee: "The big one above the Apple logo — the loudest spot on a 16-inch lid, and the one most often in frame on the road.",
+      flank: "Full-tall edge strip along the side, right beside the Apple logo — catches the eye in every cafe and terminal.",
+      snipe: "The wide bottom banner — the part people actually read first in a café.",
+      mini: "Compact 4×4 cm corner square — two per corner. Great for tight, simple logos.",
+    },
 
   guard: "The Apple logo keeps a slim ~5 mm guard ring. Nothing ever touches it.",
+
+  // LIVE MODE: true = auction starts EMPTY — A$0 raised, all 12 spots open, no
+  // demo sponsors. This is the real "nothing raised yet" state. Flip back to
+  // false only to preview the seeded demo data on a prototype.
+  live: true,
 
   // Demo seed: gross ≈ A$9,560 — past the A$6,000 floor, tracking toward
   // the A$17,530 goal; the developer tops up any shortfall. 10 of 12 spots
   // sold; the top-right square 1 and bottom-left square 2 stay open.
+  // (Ignored entirely when DATA.live === true.)
   seed: [
     { spotId: "marquee", draft: 3600, sponsor: "Panthrex" },
     { spotId: "w",       draft: 1150, sponsor: "Orbitdesk" },
