@@ -144,16 +144,19 @@
         if (s.view !== "back") return;
         var b = bids[s.id];
         var el = document.createElement("button");
-        el.className = "spot" + (b ? " sold" : "") + (b && b.logo ? " has-logo" : "");
-        el.style.gridRow = s.row;
-        el.style.gridRowEnd = s.row + (s.rowspan || 1);
-        el.style.gridColumnStart = s.col;
-        el.style.gridColumnEnd = s.col + (s.span || 1);
+        el.className = "spot" + (b ? " sold" : "") + (b && b.logo ? " has-logo" : "") + (s.w <= 4 ? " tiny" : "");
+        if (s.pos) {
+          el.style.left = s.pos.x + "%";
+          el.style.top = s.pos.y + "%";
+          el.style.width = s.pos.w + "%";
+          el.style.height = s.pos.h + "%";
+        }
         if (b) el.setAttribute("data-sponsor", b.sponsor);
         var img = b && b.logo ? '<img class="spot-logo" src="' + b.logo + '" alt="">' : "";
+        var tgt = " · target " + fmt(s.target);
         var meta = view === "final"
-          ? '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm</span>"
-          : '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm · " + DATA.areaOf[s.type] + " cm²</span>";
+          ? '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm" + tgt + "</span>"
+          : '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm · " + DATA.areaOf[s.type] + " cm²" + tgt + "</span>";
         el.innerHTML =
           img +
           '<span class="price">' + fmt(s.price) + "</span>" +
@@ -366,7 +369,7 @@
       var b = bids[s.id];
       var el = document.createElement("div");
       el.className = "sl-row";
-      var dims = s.size + " · " + s.w + "×" + s.h + " cm · " + DATA.areaOf[s.type] + " cm²";
+      var dims = s.size + " · " + s.w + "×" + s.h + " cm · " + DATA.areaOf[s.type] + " cm² · target " + fmt(s.target);
       var bidHtml;
       if (b) {
         var nameHtml = b.url

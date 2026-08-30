@@ -26,8 +26,8 @@ const DATA = {
   floor: 6000, // go / no-go — full refund below this, no Mac.
   goal: {
     title: "128GB · 2TB · nano-texture",
-    retail: 11833,
-    grossToRaise: 17530,
+    retail: 11224,
+    grossToRaise: 16640, // retail ÷ (1 − 0.325 tax) ≈ 16,628, rounded to the sum of per-spot max-tier targets
   },
   topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
   stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
@@ -41,20 +41,20 @@ const DATA = {
   // go/no-go floor is crossed; outbids climb toward the fixed goal.
   spots: [
     // --- top row: left corner squares, N banner, right corner squares ---
-    { id: "nw-a",  view: "back", type: "mini", col: 1, span: 1, row: 1, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Top left — square 1" },
-    { id: "nw-b",  view: "back", type: "mini", col: 2, span: 1, row: 1, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Top left — square 2" },
-    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 2, price: 1200, w: 14, h: 6, size: "L", name: "Marquee — above the Apple logo" },
-    { id: "ne-a",  view: "back", type: "mini", col: 5, span: 1, row: 1, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Top right — square 1" },
-    { id: "ne-b",  view: "back", type: "mini", col: 6, span: 1, row: 1, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Top right — square 2" },
+    { id: "nw-a",  view: "back", type: "mini", col: 1, span: 1, row: 1, rowspan: 2, price: 400, target: 1010, w: 4, h: 4, size: "S", name: "Top left — square 1", pos: { x: 3, y: 3, w: 11.24, h: 16.62 } },
+    { id: "nw-b",  view: "back", type: "mini", col: 2, span: 1, row: 1, rowspan: 2, price: 350, target: 880, w: 4, h: 4, size: "S", name: "Top left — square 2", pos: { x: 15.24, y: 3, w: 11.24, h: 16.62 } },
+    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 2, price: 1200, target: 3020, w: 14, h: 6, size: "L", name: "Marquee — above the Apple logo", pos: { x: 30.33, y: 3, w: 39.35, h: 24.94 } },
+    { id: "ne-a",  view: "back", type: "mini", col: 5, span: 1, row: 1, rowspan: 2, price: 350, target: 880, w: 4, h: 4, size: "S", name: "Top right — square 1", pos: { x: 73.52, y: 3, w: 11.24, h: 16.62 } },
+    { id: "ne-b",  view: "back", type: "mini", col: 6, span: 1, row: 1, rowspan: 2, price: 400, target: 1010, w: 4, h: 4, size: "S", name: "Top right — square 2", pos: { x: 85.76, y: 3, w: 11.24, h: 16.62 } },
     // --- middle row: W strip, [Apple logo guard], E strip ---
-    { id: "w", view: "back", type: "flank", col: 1, span: 2, row: 3, rowspan: 2, price: 1000, w: 8, h: 9, size: "L", name: "West — left of the Apple logo" },
-    { id: "e", view: "back", type: "flank", col: 5, span: 2, row: 3, rowspan: 2, price: 1000, w: 8, h: 9, size: "L", name: "East — right of the Apple logo" },
+    { id: "w", view: "back", type: "flank", col: 1, span: 2, row: 3, rowspan: 2, price: 1000, target: 2520, w: 8, h: 9, size: "L", name: "West — left of the Apple logo", pos: { x: 3, y: 30.8, w: 22.49, h: 37.4 } },
+    { id: "e", view: "back", type: "flank", col: 5, span: 2, row: 3, rowspan: 2, price: 1000, target: 2520, w: 8, h: 9, size: "L", name: "East — right of the Apple logo", pos: { x: 74.51, y: 30.8, w: 22.49, h: 37.4 } },
     // --- bottom row: left corner squares, S banner, right corner squares ---
-    { id: "sw-a",  view: "back", type: "mini", col: 1, span: 1, row: 5, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Bottom left — square 1" },
-    { id: "sw-b",  view: "back", type: "mini", col: 2, span: 1, row: 5, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Bottom left — square 2" },
-    { id: "s",     view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 2, price: 800, w: 14, h: 5, size: "M", name: "South — under the Apple logo" },
-    { id: "se-a",  view: "back", type: "mini", col: 5, span: 1, row: 5, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Bottom right — square 1" },
-    { id: "se-b",  view: "back", type: "mini", col: 6, span: 1, row: 5, rowspan: 2, price: 250, w: 4, h: 4, size: "S", name: "Bottom right — square 2" },
+    { id: "sw-a",  view: "back", type: "mini", col: 1, span: 1, row: 5, rowspan: 2, price: 300, target: 760, w: 4, h: 4, size: "S", name: "Bottom left — square 1", pos: { x: 3, y: 80.38, w: 11.24, h: 16.62 } },
+    { id: "sw-b",  view: "back", type: "mini", col: 2, span: 1, row: 5, rowspan: 2, price: 250, target: 630, w: 4, h: 4, size: "S", name: "Bottom left — square 2", pos: { x: 15.24, y: 80.38, w: 11.24, h: 16.62 } },
+    { id: "s",     view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 2, price: 800, target: 2020, w: 14, h: 5, size: "M", name: "South — under the Apple logo", pos: { x: 30.33, y: 76.22, w: 39.35, h: 20.78 } },
+    { id: "se-a",  view: "back", type: "mini", col: 5, span: 1, row: 5, rowspan: 2, price: 250, target: 630, w: 4, h: 4, size: "S", name: "Bottom right — square 1", pos: { x: 73.52, y: 80.38, w: 11.24, h: 16.62 } },
+    { id: "se-b",  view: "back", type: "mini", col: 6, span: 1, row: 5, rowspan: 2, price: 300, target: 760, w: 4, h: 4, size: "S", name: "Bottom right — square 2", pos: { x: 85.76, y: 80.38, w: 11.24, h: 16.62 } },
   ],
 
   areaOf: { marquee: 84, flank: 72, snipe: 70, mini: 16 },
@@ -66,7 +66,7 @@ const DATA = {
       mini: "Compact 4×4 cm corner square — two per corner. Great for tight, simple logos.",
     },
 
-  guard: "The Apple logo keeps a slim ~5 mm guard ring. Nothing ever touches it.",
+  guard: "The Apple logo is left exactly as Apple ships it — exclusive and untouched. Nothing is ever placed on it.",
 
   // LIVE MODE: true = auction starts EMPTY — A$0 raised, all 12 spots open, no
   // demo sponsors. This is the real "nothing raised yet" state. Flip back to

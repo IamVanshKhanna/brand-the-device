@@ -181,15 +181,16 @@ p { margin: 10px 0; }
 }
 .logo-mark { position: relative; z-index: 1; color: var(--logo-color); display: flex; align-items: center; justify-content: center; }
 #spotGrid, .spot-grid {
-  position: relative; z-index: 1; display: grid; grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr); gap: 10px; height: 100%; width: 100%;
+  position: relative; z-index: 1; display: block; height: 100%; width: 100%;
 }
 .spot {
-  position: relative; border: 1.5px dashed var(--spot-border); background: var(--spot-bg);
+  position: absolute; border: 1.5px dashed var(--spot-border); background: var(--spot-bg);
   border-radius: 12px; color: var(--spot-text); font-size: 0.72rem;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   cursor: pointer; transition: background 0.15s ease, transform 0.15s ease; padding: 3px; overflow: hidden;
 }
+.spot.tiny .name { display: none; }
+.spot.tiny .cm { font-size: 0.5rem; }
 .spot:hover { background: var(--accent-soft); transform: translateY(-2px); }
 .spot .price { font-weight: 800; font-size: 0.92rem; line-height: 1.1; }
 .spot .name { opacity: 0.85; font-size: 0.72rem; line-height: 1.15; text-align: center; }
