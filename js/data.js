@@ -40,33 +40,34 @@ const DATA = {
   topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
   stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
 
-  // 16 spots — big corners frame the lid, small pads fill every gap around the
+  // 14 spots — big corners frame the lid, small pads fill every gap around the
   // Apple logo. Fully symmetric (mirrors left/right and top/bottom):
-  //   Big  (8×7cm)  — 4 corner banners, the premium real estate
-  //   Dir  (14×5cm) — Marquee above the logo, South below it
-  //   Mid  (6×9cm)  — West & East flanks, right beside the logo
-  //   Sm   (4×3cm)  — 8 small pads hugging the logo & filling the gaps
-  // Base grid A$7,800 (above A$6,000 floor). Targets sum to A$16,640 — the
-  // exact gross needed to fund the machine after 32.5% tax.
+  //   Big   (8×7cm)  — 4 corner banners, the premium real estate
+  //   Crown (14×5cm) — Marquee above the logo, South below it
+  //   Flank (6×9cm)  — West & East, right beside the logo
+  //   Pad   (4×3cm)  — 6 small pads hugging the logo & filling the gaps
+  // Price ladder: accessible entry (Pads A$200-250) → premium (Marquee A$1,400).
+  // Base grid A$7,800 (above A$6,000 floor). Targets sum to exactly A$16,640 —
+  // the gross needed to fund the machine after 32.5% tax.
   spots: [
     // --- big corner banners ---
-    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 700, target: 1300, w: 8, h: 7, size: "L", name: "Top left corner — big", pos: { x: 2, y: 3, w: 25, h: 27 } },
-    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 700, target: 1300, w: 8, h: 7, size: "L", name: "Top right corner — big", pos: { x: 73, y: 3, w: 25, h: 27 } },
-    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 600, target: 1050, w: 8, h: 7, size: "L", name: "Bottom left corner — big", pos: { x: 2, y: 70, w: 25, h: 27 } },
-    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 600, target: 1050, w: 8, h: 7, size: "L", name: "Bottom right corner — big", pos: { x: 73, y: 70, w: 25, h: 27 } },
+    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 700, target: 1400, w: 8, h: 7, size: "L", name: "Top left corner — big", pos: { x: 2, y: 3, w: 25, h: 27 } },
+    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 700, target: 1400, w: 8, h: 7, size: "L", name: "Top right corner — big", pos: { x: 73, y: 3, w: 25, h: 27 } },
+    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 600, target: 1200, w: 8, h: 7, size: "L", name: "Bottom left corner — big", pos: { x: 2, y: 70, w: 25, h: 27 } },
+    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 600, target: 1200, w: 8, h: 7, size: "L", name: "Bottom right corner — big", pos: { x: 73, y: 70, w: 25, h: 27 } },
     // --- directional: Marquee above, South below ---
-    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1200, target: 2840, w: 14, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 30, y: 3, w: 40, h: 26 } },
-    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 900, target: 1900, w: 14, h: 4, size: "M", name: "South — under the Apple logo", pos: { x: 30, y: 71, w: 40, h: 26 } },
+    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1400, target: 3240, w: 14, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 30, y: 3, w: 40, h: 26 } },
+    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 900, target: 2000, w: 14, h: 4, size: "M", name: "South — under the Apple logo", pos: { x: 30, y: 71, w: 40, h: 26 } },
     // --- directional: West & East flanks ---
-    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 800, target: 1600, w: 6, h: 9, size: "L", name: "West — left of the Apple logo", pos: { x: 2, y: 33, w: 25, h: 34 } },
-    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 800, target: 1600, w: 6, h: 9, size: "L", name: "East — right of the Apple logo", pos: { x: 73, y: 33, w: 25, h: 34 } },
+    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 800, target: 1700, w: 6, h: 9, size: "L", name: "West — left of the Apple logo", pos: { x: 2, y: 33, w: 25, h: 34 } },
+    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 800, target: 1700, w: 6, h: 9, size: "L", name: "East — right of the Apple logo", pos: { x: 73, y: 33, w: 25, h: 34 } },
     // --- small pads hugging the Apple logo ---
-    { id: "nw-a", view: "back", type: "mid", col: 3, span: 1, row: 2, rowspan: 1, price: 350, target: 700, w: 4, h: 3, size: "S", name: "Pad — above the logo, left", pos: { x: 29, y: 30, w: 15, h: 7 } },
-    { id: "ne-a", view: "back", type: "mid", col: 4, span: 1, row: 2, rowspan: 1, price: 350, target: 700, w: 4, h: 3, size: "S", name: "Pad — above the logo, right", pos: { x: 56, y: 30, w: 15, h: 7 } },
-    { id: "nw-b", view: "back", type: "mid", col: 3, span: 1, row: 3, rowspan: 1, price: 350, target: 700, w: 4, h: 3, size: "S", name: "Pad — left of the logo", pos: { x: 29, y: 38, w: 15, h: 17 } },
-    { id: "ne-b", view: "back", type: "mid", col: 4, span: 1, row: 3, rowspan: 1, price: 350, target: 700, w: 4, h: 3, size: "S", name: "Pad — right of the logo", pos: { x: 56, y: 38, w: 15, h: 17 } },
-    { id: "sw-a", view: "back", type: "mid", col: 3, span: 1, row: 4, rowspan: 1, price: 300, target: 600, w: 4, h: 3, size: "S", name: "Pad — below the logo, left", pos: { x: 29, y: 63, w: 15, h: 7 } },
-    { id: "se-a", view: "back", type: "mid", col: 4, span: 1, row: 4, rowspan: 1, price: 300, target: 600, w: 4, h: 3, size: "S", name: "Pad — below the logo, right", pos: { x: 56, y: 63, w: 15, h: 7 } },
+    { id: "nw-a", view: "back", type: "mid", col: 3, span: 1, row: 2, rowspan: 1, price: 200, target: 450, w: 4, h: 3, size: "S", name: "Pad — above the logo, left", pos: { x: 29, y: 30, w: 15, h: 7 } },
+    { id: "ne-a", view: "back", type: "mid", col: 4, span: 1, row: 2, rowspan: 1, price: 200, target: 450, w: 4, h: 3, size: "S", name: "Pad — above the logo, right", pos: { x: 56, y: 30, w: 15, h: 7 } },
+    { id: "nw-b", view: "back", type: "mid", col: 3, span: 1, row: 3, rowspan: 1, price: 250, target: 500, w: 4, h: 3, size: "S", name: "Pad — left of the logo", pos: { x: 29, y: 38, w: 15, h: 17 } },
+    { id: "ne-b", view: "back", type: "mid", col: 4, span: 1, row: 3, rowspan: 1, price: 250, target: 500, w: 4, h: 3, size: "S", name: "Pad — right of the logo", pos: { x: 56, y: 38, w: 15, h: 17 } },
+    { id: "sw-a", view: "back", type: "mid", col: 3, span: 1, row: 4, rowspan: 1, price: 200, target: 450, w: 4, h: 3, size: "S", name: "Pad — below the logo, left", pos: { x: 29, y: 63, w: 15, h: 7 } },
+    { id: "se-a", view: "back", type: "mid", col: 4, span: 1, row: 4, rowspan: 1, price: 200, target: 450, w: 4, h: 3, size: "S", name: "Pad — below the logo, right", pos: { x: 56, y: 63, w: 15, h: 7 } },
   ],
 
   areaOf: { big: 56, marquee: 70, snipe: 56, flank: 54, mid: 12 },
@@ -81,14 +82,14 @@ const DATA = {
 
   guard: "The Apple logo is left exactly as Apple ships it — exclusive and untouched. Nothing is ever placed on it.",
 
-  // LIVE MODE: true = auction starts EMPTY — A$0 raised, all 16 spots open, no
+  // LIVE MODE: true = auction starts EMPTY — A$0 raised, all 14 spots open, no
   // demo sponsors. This is the real "nothing raised yet" state. Flip back to
   // false only to preview the seeded demo data on a prototype.
   live: true,
 
   // Demo seed: gross ≈ A$9,560 — past the A$6,000 floor, tracking toward
-  // the A$16,640 target; the developer tops up any shortfall. 10 of 16 spots
-  // sold; six of the corner/mid spots stay open.
+  // the A$16,640 target; the developer tops up any shortfall. Some of the 14
+  // spots sold; the rest stay open.
   // (Ignored entirely when DATA.live === true.)
   seed: [
     { spotId: "marquee", draft: 3600, sponsor: "Panthrex" },
