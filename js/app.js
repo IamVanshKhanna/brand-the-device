@@ -177,15 +177,13 @@
         if (!legendViews[s.view]) return;
         sizeMin[s.size] = sizeMin[s.size] ? Math.min(sizeMin[s.size], s.price) : s.price;
       });
-      var sizeLabel = { S: "Mini", M: "Snipe", L: "Banner" };
-      ["S", "M", "L"].forEach(function (sz) {
+      var sizeLabel = { S: "Pad", M: "Banner", L: "Big", XL: "Marquee" };
+      ["XL", "L", "M", "S"].forEach(function (sz) {
+        if (!sizeMin[sz]) return;
         var b = document.createElement("span");
         b.innerHTML = "<b>" + sizeLabel[sz] + "</b> · from " + fmt(sizeMin[sz]);
         legend.appendChild(b);
       });
-      var mg = document.createElement("span");
-      mg.innerHTML = "<b>Marquee</b> · above the logo · from " + fmt(spotById("marquee").price);
-      legend.appendChild(mg);
     }
     document.getElementById("guardNote").textContent = DATA.guard;
   }
