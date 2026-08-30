@@ -21,7 +21,7 @@ database_id = "9a1c73a3-6fb3-4ade-907d-e72dc6617c60"
 
 [vars]
 # Publishable values (safe to commit). Secrets go above, never here.
-STRIPE_PUBLISHABLE = ""     # set after `wrangler secret put STRIPE_SECRET_KEY`
+STRIPE_PUBLISHABLE = "pk_test_51UA1WNHMepf4cgbYy2mrDGafo9rB5BZ1RamPvqrKSWkiLWSuy0BY2FN3e3LrneU8hsWqY3ueTn2xlt3TvdXhjw0j00ORy68eLH"
 CORS_ORIGIN = "https://notghostingyou.xyz"
 AUCTION_CLOSE = "2026-09-30T20:00:00Z"
 DEPOSIT_PCT = 20            # % of bid held as refundable deposit
