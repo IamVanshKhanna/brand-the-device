@@ -1,9 +1,13 @@
-# Brand the Device — MacBook lid-ad fundraiser (draft v8)
+# Brand the Device — MacBook lid-ad fundraiser (draft v9)
 
 A zero-dependency static SPA: auction the **12 lid spots** of a 16-inch MacBook Pro
 (M5 Max, 128GB / 2TB SSD, nano-texture) that pays for itself — before it's bought.
 
-> **Status: DRAFT. Demo.** Brand assets, Stripe payments, and live bids are stubbed.
+> **Status: DRAFT. Demo mode (apiBase = null).** v9 adds the **backend Worker**
+> (Cloudflare Workers + D1 + R2 + Stripe Checkout + Resend email) — code-ready,
+> deploys when the operator provides a Cloudflare API token + Stripe keys. Frontend
+> auto-switches to live mode the moment `DATA.apiBase` + `DATA.stripePublicKey` are
+> set in `js/data.js`.
 > v8 = **one fixed goal, no tiers**: the machine is always the M5 Max 128GB/2TB
 > nano-texture (≈A$11,833 retail → ≈A$17,530 gross after ~32.5% tax). If the raise
 > falls short, the developer **tops up the difference from his own money**, so the
@@ -37,6 +41,34 @@ python3 -m http.server 8731   # or double-click index.html
 
 See **`LAUNCH_PLAN.md`** — gates (domain / Stripe / backend), timeline to the
 2026-09-30 close, X-thread skeleton, content calendar, risk/fallback table.
+
+## v9 changes (backend + frontend wiring)
+
+| Area | What changed |
+|---|---|
+| Backend | **Cloudflare Worker** (`worker/`) — D1 (bids + history + waitlist tables), R2 (logo file storage), Stripe Checkout Sessions (20% refundable deposit), Resend email (outbid alerts + founder notifications). Endpoints: `GET /bids`, `GET /history`, `POST /bid`, `POST /deposit`, `GET /logo/:key`, `POST /waitlist`, `GET /admin/bids`, `GET /admin/export`, `GET /health` |
+| Frontend | `js/app.js` now **auto-boots from the API** when `DATA.apiBase` is set (fetches bids + history, renders); **30s poller** refreshes the board so bidders see outbids live; bid submit **POSTs to the API** (logo as base64); if `DATA.stripePublicKey` is set, redirects to Stripe Checkout for the deposit after the bid is placed; waitlist **POSTs to the API** |
+| Config | `apiBase: null` + `stripePublicKey: null` in `js/data.js` = demo mode (localStorage, no charges). Set both to go live |
+
+## Backend deploy (Cloudflare Worker)
+
+```bash
+cd worker
+npx wrangler login                          # or: CLOUDFLARE_API_TOKEN=… wrangler deploy
+npx wrangler d1 create btd-bids             # paste the database_id into wrangler.toml
+npx wrangler d1 create btd-bids --remote    # if needed
+npx wrangler d1 execute btd-bids --file=schema.sql --remote
+npx wrangler r2 bucket create btd-logos
+npx wrangler secret put STRIPE_SECRET_KEY   # sk_live_… or sk_test_…
+npx wrangler secret put RESEND_API_KEY      # re_… (optional — outbid emails)
+npx wrangler secret put FROM_EMAIL          # "Brand the Device <auction@notghostingyou.xyz>"
+npx wrangler secret put OWNER_EMAIL         # founder notifications
+npx wrangler secret put AUTH_TOKEN          # shared secret for /admin/* endpoints
+npx wrangler deploy
+```
+
+Then set `DATA.apiBase` to the Worker URL (e.g. `https://notghostingyou-api.workers.dev`)
+and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit, push.
 
 ## v8 changes
 
@@ -115,13 +147,15 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 - [x] OG/Twitter meta + favicon + OG image, done in v6 (`index.html` head, `favicon.svg`, `og-image.png`).
 - [ ] Real brand assets/domain (site copy already says **Brand the Device**).
 - [ ] Lock the single goal's retail price on apple.com/au at launch; update `DATA.goal` + `floor`. Anchor verified (48GB/2TB = A$7,999) — re-check the ≈ A$ delta for 128GB/2TB + nano-texture on the actual configurator.
+- [x] **Backend scaffold** (v9): Cloudflare Worker with D1 bids DB, R2 logo storage, Stripe Checkout deposits, Resend outbid emails — `worker/` directory, deploys with `wrangler`.
+- [ ] **Deploy the Worker** + set `DATA.apiBase` / `DATA.stripePublicKey` — needs Cloudflare API token + Stripe keys from the operator.
 - [ ] Wire Stripe: 20% deposit capture, auto-refund on outbid / below-floor. Note: Stripe keeps its processing fee on refunds — budget it or use "deposit credit" wording.
-- [ ] Backend for the three captured fields: bids DB (email/URL/amount), **logo file storage** (Supabase Storage or equivalent), outbid email alerts.
-- [ ] Privacy + Terms pages (required once real deposits/emails/logos are collected).
-- [ ] OG/Twitter meta + favicon — the link preview is the product for a social stunt.
+- [x] Backend for the three captured fields: bids DB (email/URL/amount), **logo file storage** (R2), outbid email alerts — scaffolded in v9 (`worker/`).
+- [x] Privacy + Terms sections (v8 deploy `a879103`) — required once real deposits/emails/logos are collected.
+- [x] OG/Twitter meta + favicon — the link preview is the product for a social stunt.
 - [ ] Vinyl production: local die-cut vinyl studio quote (matte, residue-free), mock preview to every sponsor before printing, placement photos after.
 - [ ] Empty `DATA.seed`, flip demo note off.
-- [ ] Deploy (Netlify / Vercel / Cloudflare Pages — no build step).
+- [x] Deploy (GitHub Pages — live at `notghostingyou.xyz`).
 - [ ] ABN + accountant sign-off on the tax model; decide business-use split if it becomes a work tool; confirm the top-up pledge's tax treatment with the accountant.
 - [ ] Launch thread + pitch press; publish P&L at the end (it's the trust + marketing asset).
 - [ ] Sell-out state: when all 12 spots are taken, point overflow at the Brand the Device waitlist.

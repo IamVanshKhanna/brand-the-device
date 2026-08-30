@@ -8,6 +8,7 @@
   var NET = 1 - DATA.tax.rate;
   var LOGO_MAX = 256 * 1024; // bytes
   var LOGO_TYPES = ["image/svg+xml", "image/png", "image/jpeg"];
+  var API = DATA.apiBase;
 
   /* ---------- safe storage (file:// / private mode fallback) ---------- */
   var store = (function () {
@@ -554,6 +555,43 @@
     if (url && !/^https?:\/\/[^\s]+\.[^\s]+/i.test(url)) { alert("That website doesn't look right — use something like company.com."); return; }
     // No logo, no bid: the file is what becomes the sticker on the lid.
     if (!logoData) { alert("Upload your logo — it's the file that becomes the vinyl sticker on this spot."); return; }
+
+    if (API) {
+      var spot = activeSpot;
+      var btn = document.getElementById("bidSubmit");
+      btn.disabled = true; btn.textContent = "Placing bid…";
+      fetch(API + "/bid", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ spotId: spot.id, sponsor: sponsor, amount: amount, email: email, url: url || null, logo: logoData }),
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        btn.disabled = false;
+        if (res.error) { btn.textContent = "Place bid"; alert(res.error); return; }
+        bids[spot.id] = { sponsor: sponsor, amount: amount, email: email, url: url || null, logo: logoData };
+        pushHistory(spot.id, sponsor, amount);
+        closeModal();
+        renderSpots(); renderTiers(); renderTierBars(); renderBids();
+        if (DATA.stripePublicKey) {
+          btn.textContent = "Redirecting to deposit…";
+          fetch(API + "/deposit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: amount, spotId: spot.id, sponsor: sponsor, email: email }),
+          }).then(function (r) { return r.json(); }).then(function (dep) {
+            if (dep.checkoutUrl) window.location.href = dep.checkoutUrl;
+            else { btn.textContent = "Place bid — pay 20% deposit"; alert("Bid placed! Deposit link will be emailed to you."); }
+          }).catch(function () { btn.textContent = "Place bid — pay 20% deposit"; });
+        } else {
+          btn.textContent = "Place bid";
+          alert("Bid placed! You're the top bidder on " + spot.name + ".");
+        }
+      }).catch(function (e) {
+        btn.disabled = false; btn.textContent = "Place bid";
+        alert("Couldn't reach the auction server — check your connection and try again.");
+      });
+      return;
+    }
+
     bids[activeSpot.id] = { sponsor: sponsor, amount: amount, email: email, url: url || null, logo: logoData };
     save(bids);
     pushHistory(activeSpot.id, sponsor, amount);
@@ -561,17 +599,30 @@
     renderSpots(); renderTiers(); renderTierBars(); renderBids();
   });
 
-  /* waitlist (demo) */
+  /* waitlist */
   var wl = document.getElementById("waitlist");
   if (wl) {
     wl.addEventListener("submit", function (e) {
       e.preventDefault();
       var email = document.getElementById("waitlistEmail").value.trim();
       var note = document.getElementById("waitlistNote");
-      note.textContent = email
-        ? "Thanks! " + email + " is on the demo list — real capture lands at launch."
-        : "Drop an email above and you're in.";
-      note.style.color = "var(--green)";
+      if (!email) { note.textContent = "Drop an email above and you're in."; return; }
+      if (API) {
+        fetch(API + "/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email }),
+        }).then(function (r) { return r.json(); }).then(function (res) {
+          note.textContent = res.error ? res.error : "You're on the list — notified at launch.";
+          note.style.color = res.error ? "var(--red)" : "var(--green)";
+        }).catch(function () {
+          note.textContent = "Saved — we'll confirm by email at launch.";
+          note.style.color = "var(--green)";
+        });
+      } else {
+        note.textContent = "Thanks! " + email + " is on the demo list — real capture lands at launch.";
+        note.style.color = "var(--green)";
+      }
     });
   }
 
@@ -617,4 +668,29 @@
   // keep the "Xm ago" ticker honest without a full re-render every second
   setInterval(renderTicker, 60000);
   renderSpots(); renderTiers(); renderTierBars(); renderBids();
+
+  /* ---------- live backend boot (when DATA.apiBase is set) ---------- */
+  async function bootFromApi() {
+    try {
+      var [bRes, hRes] = await Promise.all([
+        fetch(API + "/bids").then(function (r) { return r.json(); }),
+        fetch(API + "/history").then(function (r) { return r.json(); }),
+      ]);
+      bids = bRes || {};
+      bidHistory = (hRes || []).map(function (h) {
+        return { spotId: h.spot_id, sponsor: h.sponsor, amount: h.amount, ts: Date.parse(h.ts) };
+      }).reverse().slice(-30);
+      renderSpots(); renderTiers(); renderTierBars(); renderBids();
+    } catch (e) {
+      var fb = document.getElementById("ticker");
+      if (fb) fb.textContent = "Live bids loading — refresh in a moment.";
+    }
+  }
+  if (API) bootFromApi();
+  if (API) setInterval(function () {
+    fetch(API + "/bids").then(function (r) { return r.json(); }).then(function (fresh) {
+      var sig = function (b) { return Object.keys(b || {}).map(function (k) { return k + ":" + (b[k] && b[k].amount); }).join("|"); };
+      if (sig(fresh) !== sig(bids)) { bids = fresh; renderSpots(); renderTiers(); renderTierBars(); renderBids(); }
+    }).catch(function () {});
+  }, 30000);
 })();
