@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand the Device — 16-inch MacBook lid auction</title>
+  <meta name="description" content="Your brand, on my Mac. Auctioning the 12 lid spots of a 16-inch MacBook Pro M5 Max (128GB, 2TB, nano-texture). A$6,000 minimum or full refund; the developer tops up any shortfall." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Brand the Device — your logo on my MacBook" />
+  <meta property="og:description" content="Auctioning 12 lid spots on a 16-inch MacBook Pro (M5 Max, 128GB / 2TB, nano-texture). A$6,000 minimum, full refund below it — the developer tops up the rest." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:url" content="https://notghostingyou.xyz/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brand the Device — your logo on my MacBook" />
+  <meta name="twitter:description" content="12 lid spots on a 16-inch MacBook Pro. A$6,000 minimum, full refund below it. Your logo rides with a founder." />
+  <meta name="twitter:image" content="og-image.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <span class="brand">Brand<span class="accent">the</span>Device</span>
+      <nav class="nav">
+        <a href="#spots">Live auction</a>
+        <a href="#how">How it works</a>
+        <a href="#specs">The machine</a>
+        <a href="#faq">FAQ</a>
+        <a href="#product">Marketplace</a>
+      </nav>
+      <div class="header-right">
+        <div class="ccy-toggle" id="ccyToggle" role="group" aria-label="Display currency">
+          <button type="button" data-ccy="AUD" class="on" aria-pressed="true">A$</button>
+          <button type="button" data-ccy="USD" aria-pressed="false">US$</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark theme" title="Toggle dark theme">🌙</button>
+        <a href="#spots" class="btn">Get a spot</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>Your brand, on my Mac.</h1>
+      <p class="lede">Your logo travels with me on a founder's best friend: the 16-inch MacBook.</p>
+
+      <div class="hero-score">
+        <div class="raised" id="heroRaised">A$0</div>
+        <span class="badge wait" id="heroBadge">A$6,000 minimum</span>
+      </div>
+
+      <div class="progress-card" id="tierCard">
+        <div class="tier-rows" id="tierRows">
+          <!-- one .tbar per bar, rendered by app.js -->
+        </div>
+        <p class="muted small" id="progressLabel">Raising…</p>
+        <p class="muted small" id="stretchNote"></p>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#spots" class="btn">Get a spot</a>
+        <a href="#how" class="btn ghost">How it works ›</a>
+      </div>
+
+      <div class="countdown" id="countdown">Auction closes in —</div>
+      <p class="ticker small muted" id="ticker"></p>
+    </div>
+  </section>
+
+  <!-- META BAND -->
+  <section class="meta-band">
+    <div class="wrap">
+      <p class="eyebrow">Everyone knows that logo in the middle. The space around it is the part that's for sale.</p>
+      <p class="muted">· 12 spots on the 16-inch lid — N, E, S, W big spots plus 8 corner squares · one fixed machine — M5 Max, 128GB / 2TB, nano-texture · still time to outbid any spot ·</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1 — LIVE AUCTION -->
+  <section id="spots">
+    <div class="wrap">
+      <p class="eyebrow">Live auction</p>
+      <h2>The auction, live.</h2>
+      <p class="muted">Every spot shows its current top bid. Four big directional spots — N, E, S, W — plus eight <strong>4×4 cm corner squares</strong>. Spots from <strong>A$250 square</strong> · <strong>A$800 South</strong> · <strong>A$1,000 East/West</strong>, with a bonus premium for the spot above the Apple logo.</p>
+
+      <div class="spacer"></div>
+
+      <div class="lid-stage">
+        <p class="muted small">Live auction ⇄ Final look — swipe, or tap any spot to place a bid.</p>
+
+        <div class="carousel" id="lidCarousel">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="carousel-slide active" data-view="back">
+              <div class="mock-back">
+                <div class="lid" id="lid">
+                  <div class="logo-zone"><span class="logo-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" focusable="false">
+                      <path d="M17.05 12.55c-.09-2.6 2.13-3.85 2.22-3.9-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.13.94-3.94.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.15-2.53.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.73-1.05-2.74-4.12Z"/>
+                      <path d="M17.39 3.86c-.56.02-1.24.4-1.53.86-.26.4-.5 1.05-.41 1.66.03.06.02.09 0 .13-.03-.01-.06-.03-.09-.06-.38-.42-1-.65-1.54-.57-1.39.13-2.56 2-2.56 2 1.79 2.16 3.77 2.47 3.77 2.47 0-.8-.28-2.08-1.13-3.03.38-.15 1-.32 1.62-.19.75.15 1.23.75 1.48 1.23.07.14.22.05.18-.1-.1-.66-.14-1.52-.78-2.32Z"/>
+                    </svg>
+                  </span></div>
+                  <div id="gridBack" class="spot-grid"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-view="final">
+              <div class="mock-final">
+                <div class="lid">
+                  <div class="final-gloss" aria-hidden="true"></div>
+                  <div class="logo-zone"><span class="logo-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" focusable="false">
+                      <path d="M17.05 12.55c-.09-2.6 2.13-3.85 2.22-3.9-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.13.94-3.94.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.15-2.53.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.73-1.05-2.74-4.12Z"/>
+                      <path d="M17.39 3.86c-.56.02-1.24.4-1.53.86-.26.4-.5 1.05-.41 1.66.03.06.02.09 0 .13-.03-.01-.06-.03-.09-.06-.38-.42-1-.65-1.54-.57-1.39.13-2.56 2-2.56 2 1.79 2.16 3.77 2.47 3.77 2.47 0-.8-.28-2.08-1.13-3.03.38-.15 1-.32 1.62-.19.75.15 1.23.75 1.48 1.23.07.14.22.05.18-.1-.1-.66-.14-1.52-.78-2.32Z"/>
+                    </svg>
+                  </span></div>
+                  <div id="gridFinal" class="spot-grid"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="carousel-nav" id="carouselNav">
+            <button class="carousel-btn" id="carouselPrev" type="button" aria-label="Previous view">‹</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <button class="carousel-btn" id="carouselNext" type="button" aria-label="Next view">›</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend" id="legend"></div>
+      <p class="small muted" id="guardNote"></p>
+
+      <div class="spacer"></div>
+
+      <div class="h2-row">
+        <h2>The spots</h2>
+        <button class="reset" id="resetBids" type="button">↺ Reset demo bids</button>
+      </div>
+      <div class="spot-list" id="bidRows"></div>
+      <p class="small muted" id="bidSummary"></p>
+
+      <details class="history" id="history">
+        <summary>Bid history <span class="muted" id="historyCount"></span></summary>
+        <div id="historyRows"></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — HOW IT WORKS -->
+  <section class="muted-band" id="how">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>Pick your spot and size</h3>
+          <p>Twelve zones in three sticker sizes, priced by size and visibility. Tap one to bid.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>Win the bid</h3>
+          <p>The top bid at the end of the auction wins. I'll reach out to arrange payment.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>Your sticker rides along</h3>
+          <p>I print your logo as a quality die-cut vinyl sticker, and everywhere the MacBook goes, your brand is visible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — THE MACHINE -->
+  <section id="specs">
+    <div class="wrap">
+      <p class="eyebrow">The machine</p>
+      <h2>What the money buys.</h2>
+      <p class="muted" id="taxBlurb"></p>
+
+      <div class="specs-grid">
+        <div class="config-card">
+          <div class="config-title">MacBook Pro 16", Silver</div>
+          <div class="config-price" id="goalConfigPrice">≈ A$11,833</div>
+          <table class="spec-table">
+            <tbody>
+              <tr><td>Chip</td><td>Apple M5 Max — 18-core CPU, 40-core GPU, 16-core Neural Engine</td></tr>
+              <tr><td>Memory</td><td>128 GB unified</td></tr>
+              <tr><td>Storage</td><td>2 TB SSD</td></tr>
+              <tr><td>Display</td><td>16.2" Liquid Retina XDR · nano-texture — the fixed config, no tiers</td></tr>
+              <tr><td>Keyboard</td><td>Backlit Magic Keyboard with Touch ID, US English</td></tr>
+              <tr><td>In the box</td><td>140W USB-C power adapter</td></tr>
+            </tbody>
+          </table>
+          <a class="apple-link" href="https://www.apple.com/au/shop/buy-mac/macbook-pro/16-inch" target="_blank" rel="noopener">Check the price at Apple ›</a>
+        </div>
+
+        <div class="tier-ladder">
+          <div class="tier-grid" id="tierGrid"></div>
+          <p class="small muted">
+            Prices are launch-day estimates (anchored: M5 Max 40-core at Apple AU).
+            One fixed config — no lesser laptop. If the raise comes up short, I top up the difference from my own money so this exact machine ships either way.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — FAQ -->
+  <section class="muted-band" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions &amp; Answers</h2>
+
+      <div class="faq">
+        <details>
+          <summary>Is this real?</summary>
+          <p>Completely. The MacBook is real (well, imminent), the stickers are real vinyl, and I'll work with it in public places. The only fictional thing is the idea that a laptop lid isn't premium ad inventory.</p>
+        </details>
+        <details>
+          <summary>Why this MacBook?</summary>
+          <p>In short: I need a new laptop, and I'm building for iOS = MacBook. I've been indie hacking on an old, dying machine for a while, and iOS builds without a Mac are just the worst. The 16-inch M5 Max with 128GB and 2TB is the machine I'd actually keep for years.</p>
+        </details>
+        <details>
+          <summary>What do I actually get?</summary>
+          <p>Your brand showing up both on socials and in the real world: a die-cut vinyl sticker of your logo on the lid (visible in public spaces + in my photos), and a spot on this page with a link to your site. I can't promise you impressions or ROI — just that it goes where I work and appears in stuff I post.</p>
+        </details>
+        <details>
+          <summary>How does payment work?</summary>
+          <p>Bidding takes a 20% deposit, paid by card when you place the bid. If you don't win, it comes back in full, automatically. If you do, it counts toward the price and I send a payment link for the remainder.</p>
+        </details>
+        <details>
+          <summary>What if someone outbids me?</summary>
+          <p>You get an email alert the moment you're outbid, an honourable mention in the bid history, and the chance to swing back. Outbids need to beat the current bid by at least A$10.</p>
+        </details>
+        <details>
+          <summary>What logo file do you need?</summary>
+          <p>Upload it when you place the bid — no logo, no bid. SVG (vector) is strongly preferred, or a transparent PNG at print quality. It becomes a die-cut vinyl sticker, so clean vectors print clean. You approve a placement mock on your exact spot before anything goes on the lid, and you keep all rights to your logo.</p>
+        </details>
+        <details>
+          <summary>Can any brand join?</summary>
+          <p>Almost. Every sponsor is approved by hand before anything appears, and I keep the final say on what goes on the lid — it travels with me, after all. If your bid is refused, your deposit comes back in full.</p>
+        </details>
+        <details>
+          <summary>What about the taxes and the refunds?</summary>
+          <p>About 32.5% of everything raised goes to Australian income tax before I buy anything — that figure is printed next to the goal so it's never a surprise. The machine is one fixed config; if the raise falls short, I pool in the difference myself, so the specs on this page are what ships. And if the auction settles below A$6,000, every deposit is refunded in full: no Mac, no charge.</p>
+        </details>
+        <details>
+          <summary>Why not just buy the MacBook?</summary>
+          <p>I've needed one for months and my indie income is growing, but I'm still not there yet. If this flops, I'll just keep waiting until the day I can get one — but you won't be on it then. Either way, the full P&amp;L gets published when it's over, so it's never a mystery where the money went.</p>
+        </details>
+      </div>
+
+      <div class="owner-card">
+        <div class="avatar">{V}</div>
+        <div>
+          <p class="owner-name">Hey, I'm Vansh 👋</p>
+          <p>Solo founder, indie hacking, building in public. I'm funding my first MacBook by renting out its lid. Questions, or want a spot? <a id="ownerLink" href="#" target="_blank" rel="noopener">Find me on X ›</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- THE MARKETPLACE — long-term product angle -->
+  <section id="product">
+    <div class="wrap">
+      <div class="product-card">
+        <p class="eyebrow">The marketplace</p>
+        <h2>This auction is iteration 1. The marketplace is coming soon.</h2>
+        <p class="muted">One surprise of this experiment: <strong>any</strong> founder could do this — same landing page, their machine, their floor. So next up, this auction becomes the template for a bigger idea — <strong>Brand the Device</strong>: a marketplace where anyone lists their own machine's spots and brands buy them directly. Set your machine and your prices in minutes; payments and refunds handled.</p>
+        <p class="muted">Mac or PC, laptop or desktop. It's the future iteration — <strong>coming soon</strong> after this auction proves the numbers. Join the waitlist and you'll be in on day one, with this auction's full P&amp;L as the public case study.</p>
+        <form class="waitlist" id="waitlist">
+          <input type="email" id="waitlistEmail" placeholder="you@company.com" required />
+          <button type="submit" class="btn">Join the waitlist</button>
+        </form>
+        <p class="small muted" id="waitlistNote">Waitlist is stubbed in this demo. Real capture at launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR THE PRESS -->
+  <section class="muted-band" id="press">
+    <div class="wrap">
+      <p class="eyebrow">For the press</p>
+      <h2>Fact sheet, one screen.</h2>
+<ul class="press-list">
+        <li><strong>What:</strong> funding a 16-inch MacBook Pro (M5 Max, 128GB / 2TB SSD, nano-texture) by auctioning its 12 lid spots before it's bought — 4 directional banners plus 8 corner squares.</li>
+        <li><strong>Why it's new:</strong> one fixed config — no tiers, no lesser laptop; the developer tops up any shortfall from his own money; A$6,000 floor with full refunds; full P&L published at the end.</li>
+        <li><strong>Hook:</strong> "bought before he owns it" — the machine's price is decided by the stickers on its lid.</li>
+        <li><strong>Status:</strong> demo site, launch pending (domain + payments). For an interview, message me on X — happy to explain the numbers on camera.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BID MODAL -->
+  <section id="bid-modal-wrapper" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <p class="eyebrow" id="modalSizeTag">Bid on a spot</p>
+      <h3 id="modalSpotTitle">Spot</h3>
+      <p class="muted" id="modalSpotBlurb"></p>
+      <div class="presets" id="presets"></div>
+      <label>Sponsor / company name
+        <input id="bidSponsor" type="text" placeholder="Acme Corp" />
+      </label>
+      <label><span id="bidCcyLabel">Bid amount (AUD)</span>
+        <input id="bidAmount" type="number" min="100" step="10" />
+      </label>
+      <label>Email — outbid alerts + payment link go here
+        <input id="bidEmail" type="email" placeholder="you@company.com" />
+      </label>
+      <label>Website — your spot links here (optional)
+        <input id="bidUrl" type="text" placeholder="company.com" />
+      </label>
+      <label>Logo file — becomes the vinyl sticker (required)
+        <input id="bidLogo" type="file" accept=".svg,.png,.jpg,.jpeg,image/svg+xml,image/png,image/jpeg" />
+      </label>
+      <img id="logoPreview" class="logo-preview hidden" alt="Logo preview" />
+      <p class="small muted">SVG vector preferred, or transparent PNG at print quality · max 256 KB · you approve a placement mock before printing.</p>
+      <button class="btn block" id="bidSubmit" type="button">Place bid — 20% deposit on card</button>
+      <p class="small muted">Payment capture is stubbed until launch — this is a demo of the flow.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>This is a one-man operation. One fixed machine, every number public, and if the raise comes up short I make up the difference myself.</p>
+      <p class="small">Brand the Device is not affiliated with, endorsed by, or sponsored by Apple Inc. MacBook Pro and the Apple logo are trademarks of Apple Inc., used nominatively.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
