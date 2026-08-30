@@ -5,11 +5,12 @@
 CREATE TABLE IF NOT EXISTS bids (
   spot_id    TEXT PRIMARY KEY,
   sponsor    TEXT NOT NULL,
-  amount     INTEGER NOT NULL,          -- AUD cents (settle currency)
+  amount     INTEGER NOT NULL,          -- AUD dollars (whole dollars)
   email      TEXT NOT NULL,
   url        TEXT,
   logo_data  TEXT NOT NULL,             -- base64 data URL (stored in D1, no R2)
   bidder_id  TEXT NOT NULL,             -- opaque token returned to bidder for identity
+  status     TEXT NOT NULL DEFAULT 'active',  -- 'pending' (awaiting deposit) or 'active'
   created_at TEXT NOT NULL
 );
 
