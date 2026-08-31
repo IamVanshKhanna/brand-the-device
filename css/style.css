@@ -56,6 +56,12 @@ html[data-theme="dark"] {
 }
 
 * { box-sizing: border-box; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 1000;
+  background: var(--accent, #1273e6); color: #fff; text-decoration: none;
+  padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 600;
+}
+.skip-link:focus { left: 0; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);

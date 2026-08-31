@@ -32,7 +32,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Check keyboard navigation works for bid modal and carousel
 - [ ] Add `aria-live` regions for dynamic content (raised amount, bid updates)
 - [ ] Verify focus indicators are visible on all interactive elements
-- [ ] Add skip-to-content link at top of index.html
+- [x] Add skip-to-content link at top of index.html
 - [ ] Ensure carousel has proper `aria-roledescription` and controls
 - [ ] Test with screen reader: verify spot labels are announced correctly
 
