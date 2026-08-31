@@ -79,7 +79,7 @@ and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit
 | Progress | Progress card now renders **2 bars: the A$6,000 Floor (go/no-go) → the fixed goal**. No T1–T4 ladder |
 | Proof band | **Removed** ("This worked before", "top spot on the original 14-inch", etc.) |
 | Original-run mentions | Scrubbed everywhere: no sequel/14-inch/viral/sold-out copy, no "Brand My Mac" FAQ item, hero + footer rewrites — reads as an original stunt now |
-| Lid spots | 14 spots, max coverage: **4 big corner banners** (8×7cm) frame the lid, a **Marquee crown** (14×5cm) above the Apple logo, **West/East flanks** (6×9cm) beside it, a **South banner** (14×4cm) below, and **6 small pads** (4×3cm) hugging the logo. Apple logo stays clear. Carousel = **Live auction ⇄ Final look**; base grid A$7,800, targets sum to A$16,640 |
+| Lid spots | 8 spots, clean premium layout (~48% coverage): **4 big corner squares** (7×7cm) anchor the lid, a **Marquee crown** (14×5cm) above the Apple logo, **West/East flanks** (7×7cm) beside it, a **South banner** (14×4cm) below. Apple logo untouched with room to breathe. Three standard shapes, monotonic price/cm². Carousel = **Live auction ⇄ Final look**; base grid A$6,450 (crosses A$6,000 floor), targets sum to A$16,640 |
 
 ## v7 changes
 
@@ -138,7 +138,7 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 1. **Journalist / viral mindset** — the story's hook is the twist ("bought before he owns it") plus a number and an arc — and it's an original stunt, not a sequel. Add: a launch X-thread with a video, a press one-pager, and the promise to **publish the full P&L**. Do NOT write a 500-word backstory.
 2. **Sponsor / media-buy mindset** — sponsors aren't donors; frame it as a cheap, measureable, novel media buy: 16-inch moving billboard, placement photo + link, and the "one fixed machine, developer tops up any shortfall" guarantee (never a downgraded lid). Do NOT promise hard impression/CPM numbers you can't deliver.
 3. **Apple / brand-safety mindset** — removable residue-free vinyl, slim guard ring so the Apple mark stays untouched, accurate product names, "not affiliated" legalese. A respectful, coherent lid reads as premium and sells higher spots. Do NOT mock Apple or imply endorsement.
-4. **Consumer psychology mindset** — open with who + the twist, not a pitch; lead with the refund/floor guard (trust); anchor bid values; show social proof (bid board) and scarcity (only 14 spots); specificity (cm, A$, dates) builds believability. Do NOT fake hardship — it's a self-aware stunt, not charity; credibility dies instantly if it reads as a sob story.
+4. **Consumer psychology mindset** — open with who + the twist, not a pitch; lead with the refund/floor guard (trust); anchor bid values; show social proof (bid board) and scarcity (only 8 spots); specificity (cm, A$, dates) builds believability. Do NOT fake hardship — it's a self-aware stunt, not charity; credibility dies instantly if it reads as a sob story.
 
 ## Launch checklist
 
@@ -158,4 +158,4 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 - [x] Deploy (GitHub Pages — live at `notghostingyou.xyz`).
 - [ ] ABN + accountant sign-off on the tax model; decide business-use split if it becomes a work tool; confirm the top-up pledge's tax treatment with the accountant.
 - [ ] Launch thread + pitch press; publish P&L at the end (it's the trust + marketing asset).
-- [ ] Sell-out state: when all 14 spots are taken, point overflow at the Brand the Device waitlist.
+- [ ] Sell-out state: when all 8 spots are taken, point overflow at the Brand the Device waitlist.
