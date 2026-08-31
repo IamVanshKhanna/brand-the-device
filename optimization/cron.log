@@ -1,0 +1,4 @@
+shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted
+/bin/bash: /Users/anonymousbrat/Downloads/Munder_Difflin/ventures/lid-fundraiser/optimization/trigger.sh: Operation not permitted
+Injected: 2026-08-31T20-14-24-3NZ-e83f02f3
+/Users/anonymousbrat/.hermes/scripts/hive-optimize.sh: line 21: /Users/anonymousbrat/Downloads/Munder_Difflin/ventures/lid-fundraiser/optimization/TRACKING.md: Operation not permitted
