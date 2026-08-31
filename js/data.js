@@ -28,42 +28,43 @@ const DATA = {
 
   // The ONE fixed goal — no tiers. If the raise falls short, the developer
   // tops up the difference from his own money, so the lid is always this exact
-  // machine: M5 Max, 36GB / 2TB.
-  // RRP ≈ A$7,099 (AU retail, 16-inch M5 Max 18-core/40-core, Silver).
+  // machine: M5 Pro, 64GB / 2TB.
+  // RRP = A$7,049 (AU retail, 16-inch M5 Pro 18-core/20-core, Silver).
   // grossToRaise = retail ÷ (1 − tax) = retail ÷ 0.675.
-  floor: 3760, // go / no-go — full refund below this, no Mac.
+  floor: 3740, // go / no-go — full refund below this, no Mac.
   goal: {
-    title: "36GB · 2TB",
-    retail: 7099,
-    grossToRaise: 10517, // retail ÷ (1 − 0.325 tax) ≈ 10,517, rounded to the sum of per-spot max-tier targets
+    title: "64GB · 2TB · M5 Pro",
+    retail: 7049,
+    grossToRaise: 10443, // retail ÷ (1 − 0.325 tax) ≈ 10,443, rounded to the sum of per-spot max-tier targets
   },
   topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
   stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
 
-  // 8 spots — a clean, premium layout that frames the lid and keeps the Apple
-  // logo untouched with breathing room. Three standard shapes, ~48% coverage:
-  //   Corner (7×7cm) — 4 squares, the affordable entry tier
-  //   Marquee (14×5cm) — the flagship crown, above the Apple logo
-  //   South  (14×4cm) — the closer, below the Apple logo
-  //   Flank  (7×7cm)  — West & East, right beside the logo (square like corners)
-  // Price per cm² is monotonic (Marquee most, corners least) and consistent.
-  // Base grid A$6,450 (crosses the A$3,760 floor). Targets sum to exactly
-  // A$10,517 — the gross needed to fund the machine after 32.5% tax.
+  // 8 spots laid out on the real MacBook Pro 16" lid (35.57 × 24.81 cm).
+  // Usable area (1.5cm margin) ≈ 710cm² — spots fill ~60% with a premium
+  // hierarchy and the Apple logo protected at center. Standard shapes:
+  //   Corner (8×6cm) — 4, the affordable entry tier
+  //   Banner (16.5×5cm) — Marquee above the logo, South below it
+  //   Flank  (6×6cm)  — West & East, right beside the logo
+  // Positions are % of the lid, derived from real cm coordinates.
+  // Price/cm² is monotonic (banners highest, corners lowest).
+  // Base grid A$6,040 (crosses the A$3,740 floor). Targets sum to exactly
+  // A$10,443 — the gross needed to fund the machine after 32.5% tax.
   spots: [
-    // --- big corner squares (affordable entry tier) ---
-    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 600, target: 950, w: 7, h: 7, size: "L", name: "Top left corner — big", pos: { x: 2, y: 3, w: 25, h: 27 } },
-    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 600, target: 950, w: 7, h: 7, size: "L", name: "Top right corner — big", pos: { x: 73, y: 3, w: 25, h: 27 } },
-    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 550, target: 880, w: 7, h: 7, size: "L", name: "Bottom left corner — big", pos: { x: 2, y: 70, w: 25, h: 27 } },
-    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 550, target: 880, w: 7, h: 7, size: "L", name: "Bottom right corner — big", pos: { x: 73, y: 70, w: 25, h: 27 } },
-    // --- directional: Marquee above, South below ---
-    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1500, target: 2860, w: 14, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 30, y: 3, w: 40, h: 26 } },
-    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 950, target: 1450, w: 14, h: 4, size: "M", name: "South — under the Apple logo", pos: { x: 30, y: 71, w: 40, h: 26 } },
-    // --- directional: West & East flanks ---
-    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 850, target: 1280, w: 7, h: 7, size: "L", name: "West — left of the Apple logo", pos: { x: 2, y: 33, w: 25, h: 34 } },
-    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 850, target: 1267, w: 7, h: 7, size: "L", name: "East — right of the Apple logo", pos: { x: 73, y: 33, w: 25, h: 34 } },
+    // --- corner squares (affordable entry tier) ---
+    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 550, target: 950, w: 8, h: 6, size: "L", name: "Top left corner", pos: { x: 4.2, y: 6.0, w: 22.5, h: 24.2 } },
+    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 550, target: 950, w: 8, h: 6, size: "L", name: "Top right corner", pos: { x: 73.1, y: 6.0, w: 22.5, h: 24.2 } },
+    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 520, target: 900, w: 8, h: 6, size: "L", name: "Bottom left corner", pos: { x: 4.2, y: 66.5, w: 22.5, h: 24.2 } },
+    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 520, target: 900, w: 8, h: 6, size: "L", name: "Bottom right corner", pos: { x: 73.1, y: 66.5, w: 22.5, h: 24.2 } },
+    // --- banners: Marquee above, South below ---
+    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1600, target: 2763, w: 16.5, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 26.7, y: 5.2, w: 46.4, h: 20.2 } },
+    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 1300, target: 2250, w: 16.5, h: 5, size: "M", name: "South — under the Apple logo", pos: { x: 26.7, y: 66.9, w: 46.4, h: 20.2 } },
+    // --- flanks: West & East ---
+    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 500, target: 865, w: 6, h: 6, size: "L", name: "West — left of the Apple logo", pos: { x: 27.6, y: 34.3, w: 16.9, h: 24.2 } },
+    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 500, target: 865, w: 6, h: 6, size: "L", name: "East — right of the Apple logo", pos: { x: 58.5, y: 34.3, w: 16.9, h: 24.2 } },
   ],
 
-  areaOf: { big: 49, marquee: 70, snipe: 56, flank: 49 },
+  areaOf: { big: 48, marquee: 82.5, snipe: 82.5, flank: 36 },
 
     blurb: {
       big: "The frame. A big corner square that anchors the whole lid — the first thing the eye lands on when the lid opens.",
@@ -79,8 +80,8 @@ const DATA = {
   // false only to preview the seeded demo data on a prototype.
   live: true,
 
-  // Demo seed: gross ≈ A$6,400 — past the A$3,760 floor, tracking toward
-  // the A$10,517 target; the developer tops up any shortfall. Some of the 8
+  // Demo seed: gross ≈ A$6,400 — past the A$3,740 floor, tracking toward
+  // the A$10,443 target; the developer tops up any shortfall. Some of the 8
   // spots sold; the rest stay open.
   // (Ignored entirely when DATA.live === true.)
   seed: [

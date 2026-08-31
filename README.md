@@ -1,14 +1,14 @@
 # Brand the Device — MacBook lid-ad fundraiser (draft v20)
 
 A zero-dependency static SPA: auction the **8 lid spots** of a 16-inch MacBook Pro
-(M5 Max, 36GB / 2TB SSD) that pays for itself — before it's bought.
+(M5 Pro, 64GB / 2TB SSD) that pays for itself — before it's bought.
 
 > **Status: LIVE.** Backend Worker deployed to Cloudflare (D1 + Stripe Checkout in
 > test mode), frontend in live mode (`DATA.apiBase` + `DATA.stripePublicKey` set).
-> > One fixed goal, **no tiers**: the machine is always the M5 Max 36GB/2TB
-> (≈A$7,099 retail → ≈A$10,517 gross after ~32.5% tax). If the raise
+> > One fixed goal, **no tiers**: the machine is always the M5 Pro 64GB/2TB
+> (A$7,049 retail → ≈A$10,443 gross after ~32.5% tax). If the raise
 > falls short, the developer **tops up the difference from his own money**, so the
-> specs are never downgraded. The A$3,760 floor / full-refund guard stays. All
+> specs are never downgraded. The A$3,740 floor / full-refund guard stays. All
 > mentions of the original 14-inch run (the proof band, the "Brand My Mac" FAQ, and
 > the "sequel / viral / sold out" copy) are **gone** — an original stunner this time.
 > v7 = **EUR dropped, AUD ⇄ USD view toggle added** (header, persisted):
@@ -71,12 +71,12 @@ and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit
 
 | Area | What changed |
 |---|---|
-| Goal | **One fixed machine — no tiers**: M5 Max, 36GB / 2TB SSD (≈A$7,099 retail → ≈A$10,517 gross after ~32.5% tax). Config card, spec table, and JSON all reference the single goal |
+| Goal | **One fixed machine — no tiers**: M5 Pro, 64GB / 2TB SSD (A$7,049 retail → ≈A$10,443 gross after ~32.5% tax). Config card, spec table, and JSON all reference the single goal |
 | Top-up pledge | If the raise falls short, the **developer pools in the difference from his own money** — the lid is never downgraded. Hero badge ("Floor passed — dev tops up the rest"), progress label (shortfall figure), tier card, FAQ, press + footer copy all state it |
-| Progress | Progress card now renders **2 bars: the A$3,760 Floor (go/no-go) → the fixed goal**. No T1–T4 ladder |
+| Progress | Progress card now renders **2 bars: the A$3,740 Floor (go/no-go) → the fixed goal**. No T1–T4 ladder |
 | Proof band | **Removed** ("This worked before", "top spot on the original 14-inch", etc.) |
 | Original-run mentions | Scrubbed everywhere: no sequel/14-inch/viral/sold-out copy, no "Brand My Mac" FAQ item, hero + footer rewrites — reads as an original stunt now |
-| Lid spots | 8 spots, clean premium layout (~48% coverage): **4 big corner squares** (7×7cm) anchor the lid, a **Marquee crown** (14×5cm) above the Apple logo, **West/East flanks** (7×7cm) beside it, a **South banner** (14×4cm) below. Apple logo untouched with room to breathe. Three standard shapes, monotonic price/cm². Carousel = **Live auction ⇄ Final look**; base grid A$6,450 (crosses A$3,760 floor), targets sum to A$10,517 |
+| Lid spots | 8 spots on the real lid (35.57 × 24.81 cm ≈ 710cm² usable): **4 corner squares** (8×6cm), a **Marquee banner** (16.5×5cm) above the Apple logo, **West/East flanks** (6×6cm) beside it, a **South banner** (16.5×5cm) below. Apple logo protected at center; ~60% coverage, monotonic price/cm². Carousel = **Live auction ⇄ Final look**; base grid A$6,040 (crosses A$3,740 floor), targets sum to A$10,443 |
 
 ## v7 changes
 
@@ -119,11 +119,11 @@ and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit
 | Brand | Renamed **Brand the Lid → Brand the Device** (device-agnostic for the SaaS end-game; this campaign is one device). All copy, meta, footer updated |
 | Theme | **Light (white) is the default**; dark is a toggle, persisted, top-right |
 | Sticker sizes | Real cm dimensions + cm² on every spot (marquee 14×6=84, flanks 8×9=72, snipe 14×5=70, minis 4×4=16) |
-| Prices | Spot prices rescaled so the **full base grid = exactly A$6,450** (crosses the A$3,760 floor): corner squares A$550-600, South A$950, East/West A$850, Marquee A$1,500 (v18+). Outbids are what climb toward the goal |
+| Prices | Spot prices rescaled so the **full base grid = exactly A$6,040** (crosses the A$3,740 floor): corner squares A$520-550, South A$1,300, East/West A$500, Marquee A$1,600. Outbids are what climb toward the goal |
 | Lid division | Proper 16" (282×197mm) split — Apple mark keeps only a **slim ~5mm guard ring**; 3×3 sectors, 8 corner squares |
-| Floor | **A$3,760 minimum → full refund** below it |
-| Goal | **One fixed machine — the M5 Max 36GB / 2TB SSD** (≈A$7,099 retail, anchored to AU retail). Retail ÷ 0.675 = ≈A$10,517 gross-to-raise. No tiers — the developer tops up any shortfall from his own money |
-| Progress | **2 incremental bars (A$3,760 Floor → the fixed goal)** — the goal fills only once the floor is passed; stretch note = "every dollar above the goal tops up what the developer keeps" |
+| Floor | **A$3,740 minimum → full refund** below it |
+| Goal | **One fixed machine — the M5 Pro 64GB / 2TB SSD** (A$7,049 retail, anchored to AU retail). Retail ÷ 0.675 = ≈A$10,443 gross-to-raise. No tiers — the developer tops up any shortfall from his own money |
+| Progress | **2 incremental bars (A$3,740 Floor → the fixed goal)** — the goal fills only once the floor is passed; stretch note = "every dollar above the goal tops up what the developer keeps" |
 | Story | Owner-voice hero, public P&L promise, advertiser section, floor/refund guard first, top-up pledge in the machine + FAQ + press + footer |
 | Added | Live countdown (closes 2026-09-30T20:00Z), bid-history log, **The product** SaaS-teaser (the waitlist play), **For the press** fact sheet |
 | Modal | Anchored preset bid chips (behavioral anchoring) |
@@ -143,7 +143,7 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 
 - [x] OG/Twitter meta + favicon + OG image, done in v6 (`index.html` head, `favicon.svg`, `og-image.png`).
 - [ ] Real brand assets/domain (site copy already says **Brand the Device**).
-- [ ] Lock the single goal's retail price on apple.com/au at launch; update `DATA.goal` + `floor`. Anchor verified (M5 Max 36GB/2TB ≈ A$7,099) — re-check on the actual configurator.
+- [ ] Lock the single goal's retail price on apple.com/au at launch; update `DATA.goal` + `floor`. Anchor verified (M5 Pro 64GB/2TB = A$7,049) — re-check on the actual configurator.
 - [x] **Backend scaffold** (v9): Cloudflare Worker with D1 bids DB, R2 logo storage, Stripe Checkout deposits, Resend outbid emails — `worker/` directory, deploys with `wrangler`.
 - [ ] **Deploy the Worker** + set `DATA.apiBase` / `DATA.stripePublicKey` — needs Cloudflare API token + Stripe keys from the operator.
 - [ ] Wire Stripe: 20% deposit capture, auto-refund on outbid / below-floor. Note: Stripe keeps its processing fee on refunds — budget it or use "deposit credit" wording.
