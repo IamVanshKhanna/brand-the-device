@@ -20,7 +20,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Add `loading="lazy"` to below-fold images if any exist
 - [ ] Verify no render-blocking resources in `<head>`
 - [ ] Check if any CSS can be inlined (small files loaded separately)
-- [ ] Add `dns-prefetch` for external domains (Stripe, Cloudflare Worker)
+- [x] Add `dns-prefetch` for external domains (Stripe, Cloudflare Worker)
 - [ ] Ensure gzip/brotli is configured on GitHub Pages (check headers)
 - [ ] Verify image formats are optimal (SVG for icons, WebP if applicable)
 

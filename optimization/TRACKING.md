@@ -9,3 +9,4 @@ Each row = one hourly cycle. Format: `[timestamp] item-id: description of change
 2026-08-31T20:14:16Z — optimizer trigger sent (74 items remaining)
 2026-08-31T20:22:00Z — #54 numbers-consistent: fixed stale "8 ad spaces" → "31 identical ad squares" in definition/og/twitter meta descriptions on index.html (was stale since v22 uniform-grid change). Verified no other stale 8-spot refs; all pages 200, app.js compiles.
 2026-08-31T21:20:00Z — #45 robots.txt: created robots.txt (Allow all + Sitemap ref). Was missing entirely despite sitemap.xml existing. Improves crawlability/SEO. Verify live serves 200.
+2026-08-31T22:20:00Z — #23 dns-prefetch: added <link rel="preconnect" crossorigin> + <link rel="dns-prefetch"> for Cloudflare Worker API (notghostingyou-api.vanshkhanna416.workers.dev) in index.html <head>. Warms TLS/DNS for first API call. (Stripe loads dynamically via jsdelivr in app.js; primary predictable origin is the API.)
