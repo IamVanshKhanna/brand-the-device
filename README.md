@@ -1,6 +1,6 @@
-# Brand the Device — MacBook lid-ad fundraiser (draft v20)
+# Brand the Device — MacBook lid-ad fundraiser (draft v22)
 
-A zero-dependency static SPA: auction the **8 lid spots** of a 16-inch MacBook Pro
+A zero-dependency static SPA: auction the **31 lid spots** of a 16-inch MacBook Pro
 (M5 Pro, 64GB / 2TB SSD) that pays for itself — before it's bought.
 
 > **Status: LIVE.** Backend Worker deployed to Cloudflare (D1 + Stripe Checkout in
@@ -76,7 +76,7 @@ and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit
 | Progress | Progress card now renders **2 bars: the A$3,740 Floor (go/no-go) → the fixed goal**. No T1–T4 ladder |
 | Proof band | **Removed** ("This worked before", "top spot on the original 14-inch", etc.) |
 | Original-run mentions | Scrubbed everywhere: no sequel/14-inch/viral/sold-out copy, no "Brand My Mac" FAQ item, hero + footer rewrites — reads as an original stunt now |
-| Lid spots | 8 spots on the real lid (35.57 × 24.81 cm ≈ 710cm² usable): **4 corner squares** (8×6cm), a **Marquee banner** (16.5×5cm) above the Apple logo, **West/East flanks** (6×6cm) beside it, a **South banner** (16.5×5cm) below. Apple logo protected at center; ~60% coverage, monotonic price/cm². Carousel = **Live auction ⇄ Final look**; base grid A$6,040 (crosses A$3,740 floor), targets sum to A$10,443 |
+| Lid spots | 31 identical 4×4cm squares on the real lid (35.57 × 24.81 cm ≈ 743cm² usable) — 8 columns × 5 rows grid (A1–E8), 9 cells removed to protect the Apple logo guard at centre. All spots same size, same price (A$140 base / A$337 target), no premium tiers. ~40% lid coverage. Carousel = **Live auction ⇄ Final look**; base grid A$4,340 (crosses A$3,740 floor), targets sum to A$10,447 |
 
 ## v7 changes
 
@@ -118,9 +118,9 @@ and `DATA.stripePublicKey` to the Stripe publishable key in `js/data.js`, commit
 |---|---|
 | Brand | Renamed **Brand the Lid → Brand the Device** (device-agnostic for the SaaS end-game; this campaign is one device). All copy, meta, footer updated |
 | Theme | **Light (white) is the default**; dark is a toggle, persisted, top-right |
-| Sticker sizes | Real cm dimensions + cm² on every spot (marquee 14×6=84, flanks 8×9=72, snipe 14×5=70, minis 4×4=16) |
-| Prices | Spot prices rescaled so the **full base grid = exactly A$6,040** (crosses the A$3,740 floor): corner squares A$520-550, South A$1,300, East/West A$500, Marquee A$1,600. Outbids are what climb toward the goal |
-| Lid division | Proper 16" (282×197mm) split — Apple mark keeps only a **slim ~5mm guard ring**; 3×3 sectors, 8 corner squares |
+| Sticker sizes | Real cm dimensions + cm² on every spot (4×4cm = 16cm², uniform across all31 spots) |
+| Prices | Spot prices rescaled so the **full base grid = exactly A$4,340** (31 × A$140, crosses the A$3,740 floor). All spots identical; outbids climb toward the A$10,443 goal |
+| Lid division | Proper 16" (282×197mm) split — 8×5 grid, 9 cells removed for Apple logo guard zone at centre (B4–B5 / C4–C5 / D4–D5) |
 | Floor | **A$3,740 minimum → full refund** below it |
 | Goal | **One fixed machine — the M5 Pro 64GB / 2TB SSD** (A$7,049 retail, anchored to AU retail). Retail ÷ 0.675 = ≈A$10,443 gross-to-raise. No tiers — the developer tops up any shortfall from his own money |
 | Progress | **2 incremental bars (A$3,740 Floor → the fixed goal)** — the goal fills only once the floor is passed; stretch note = "every dollar above the goal tops up what the developer keeps" |
@@ -135,7 +135,7 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 1. **Journalist / viral mindset** — the story's hook is the twist ("bought before he owns it") plus a number and an arc — and it's an original stunt, not a sequel. Add: a launch X-thread with a video, a press one-pager, and the promise to **publish the full P&L**. Do NOT write a 500-word backstory.
 2. **Sponsor / media-buy mindset** — sponsors aren't donors; frame it as a cheap, measureable, novel media buy: 16-inch moving billboard, placement photo + link, and the "one fixed machine, developer tops up any shortfall" guarantee (never a downgraded lid). Do NOT promise hard impression/CPM numbers you can't deliver.
 3. **Apple / brand-safety mindset** — removable residue-free vinyl, slim guard ring so the Apple mark stays untouched, accurate product names, "not affiliated" legalese. A respectful, coherent lid reads as premium and sells higher spots. Do NOT mock Apple or imply endorsement.
-4. **Consumer psychology mindset** — open with who + the twist, not a pitch; lead with the refund/floor guard (trust); anchor bid values; show social proof (bid board) and scarcity (only 8 spots); specificity (cm, A$, dates) builds believability. Do NOT fake hardship — it's a self-aware stunt, not charity; credibility dies instantly if it reads as a sob story.
+4. **Consumer psychology mindset** — open with who + the twist, not a pitch; lead with the refund/floor guard (trust); anchor bid values; show social proof (bid board) and scarcity (only 31 spots); specificity (cm, A$, dates) builds believability. Do NOT fake hardship — it's a self-aware stunt, not charity; credibility dies instantly if it reads as a sob story.
 
 ## Launch checklist
 
@@ -155,4 +155,4 @@ Advice baked into the copy above. Sources: crowdfunding/psychology literature (G
 - [x] Deploy (GitHub Pages — live at `notghostingyou.xyz`).
 - [ ] ABN + accountant sign-off on the tax model; decide business-use split if it becomes a work tool; confirm the top-up pledge's tax treatment with the accountant.
 - [ ] Launch thread + pitch press; publish P&L at the end (it's the trust + marketing asset).
-- [ ] Sell-out state: when all 8 spots are taken, point overflow at the Brand the Device waitlist.
+- [ ] Sell-out state: when all 31 spots are taken, point overflow at the Brand the Device waitlist.
