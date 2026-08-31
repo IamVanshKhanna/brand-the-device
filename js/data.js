@@ -28,14 +28,14 @@ const DATA = {
 
   // The ONE fixed goal — no tiers. If the raise falls short, the developer
   // tops up the difference from his own money, so the lid is always this exact
-  // machine: M5 Max, 128GB / 2TB, nano-texture.
-  // RRP ≈ A$11,224 (apple.com/au, 16-inch M5 Max 18-core/40-core, Silver,
-  // nano-texture). grossToRaise = retail ÷ (1 − tax) = retail ÷ 0.675.
-  floor: 6000, // go / no-go — full refund below this, no Mac.
+  // machine: M5 Max, 36GB / 2TB.
+  // RRP ≈ A$7,099 (AU retail, 16-inch M5 Max 18-core/40-core, Silver).
+  // grossToRaise = retail ÷ (1 − tax) = retail ÷ 0.675.
+  floor: 3760, // go / no-go — full refund below this, no Mac.
   goal: {
-    title: "128GB · 2TB · nano-texture",
-    retail: 11224,
-    grossToRaise: 16640, // retail ÷ (1 − 0.325 tax) ≈ 16,628, rounded to the sum of per-spot max-tier targets
+    title: "36GB · 2TB",
+    retail: 7099,
+    grossToRaise: 10517, // retail ÷ (1 − 0.325 tax) ≈ 10,517, rounded to the sum of per-spot max-tier targets
   },
   topup: "One fixed config — no lesser laptop, ever. If the raise comes up short, the developer pools in the difference from his own money so the machine is exactly the one promised — and it becomes his everyday travel laptop.",
   stretch: "Every dollar above the goal tops up what the developer keeps — and the more it raises, the further this laptop travels.",
@@ -47,20 +47,20 @@ const DATA = {
   //   South  (14×4cm) — the closer, below the Apple logo
   //   Flank  (7×7cm)  — West & East, right beside the logo (square like corners)
   // Price per cm² is monotonic (Marquee most, corners least) and consistent.
-  // Base grid A$6,450 (crosses the A$6,000 floor). Targets sum to exactly
-  // A$16,640 — the gross needed to fund the machine after 32.5% tax.
+  // Base grid A$6,450 (crosses the A$3,760 floor). Targets sum to exactly
+  // A$10,517 — the gross needed to fund the machine after 32.5% tax.
   spots: [
     // --- big corner squares (affordable entry tier) ---
-    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 600, target: 1500, w: 7, h: 7, size: "L", name: "Top left corner — big", pos: { x: 2, y: 3, w: 25, h: 27 } },
-    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 600, target: 1500, w: 7, h: 7, size: "L", name: "Top right corner — big", pos: { x: 73, y: 3, w: 25, h: 27 } },
-    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 550, target: 1400, w: 7, h: 7, size: "L", name: "Bottom left corner — big", pos: { x: 2, y: 70, w: 25, h: 27 } },
-    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 550, target: 1400, w: 7, h: 7, size: "L", name: "Bottom right corner — big", pos: { x: 73, y: 70, w: 25, h: 27 } },
+    { id: "tl", view: "back", type: "big", col: 1, span: 1, row: 1, rowspan: 1, price: 600, target: 950, w: 7, h: 7, size: "L", name: "Top left corner — big", pos: { x: 2, y: 3, w: 25, h: 27 } },
+    { id: "tr", view: "back", type: "big", col: 5, span: 1, row: 1, rowspan: 1, price: 600, target: 950, w: 7, h: 7, size: "L", name: "Top right corner — big", pos: { x: 73, y: 3, w: 25, h: 27 } },
+    { id: "bl", view: "back", type: "big", col: 1, span: 1, row: 5, rowspan: 1, price: 550, target: 880, w: 7, h: 7, size: "L", name: "Bottom left corner — big", pos: { x: 2, y: 70, w: 25, h: 27 } },
+    { id: "br", view: "back", type: "big", col: 5, span: 1, row: 5, rowspan: 1, price: 550, target: 880, w: 7, h: 7, size: "L", name: "Bottom right corner — big", pos: { x: 73, y: 70, w: 25, h: 27 } },
     // --- directional: Marquee above, South below ---
-    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1500, target: 4460, w: 14, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 30, y: 3, w: 40, h: 26 } },
-    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 950, target: 2300, w: 14, h: 4, size: "M", name: "South — under the Apple logo", pos: { x: 30, y: 71, w: 40, h: 26 } },
+    { id: "marquee", view: "back", type: "marquee", col: 3, span: 2, row: 1, rowspan: 1, price: 1500, target: 2860, w: 14, h: 5, size: "XL", name: "Marquee — above the Apple logo", pos: { x: 30, y: 3, w: 40, h: 26 } },
+    { id: "s", view: "back", type: "snipe", col: 3, span: 2, row: 5, rowspan: 1, price: 950, target: 1450, w: 14, h: 4, size: "M", name: "South — under the Apple logo", pos: { x: 30, y: 71, w: 40, h: 26 } },
     // --- directional: West & East flanks ---
-    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 850, target: 2040, w: 7, h: 7, size: "L", name: "West — left of the Apple logo", pos: { x: 2, y: 33, w: 25, h: 34 } },
-    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 850, target: 2040, w: 7, h: 7, size: "L", name: "East — right of the Apple logo", pos: { x: 73, y: 33, w: 25, h: 34 } },
+    { id: "w", view: "back", type: "flank", col: 1, span: 1, row: 3, rowspan: 2, price: 850, target: 1280, w: 7, h: 7, size: "L", name: "West — left of the Apple logo", pos: { x: 2, y: 33, w: 25, h: 34 } },
+    { id: "e", view: "back", type: "flank", col: 5, span: 1, row: 3, rowspan: 2, price: 850, target: 1267, w: 7, h: 7, size: "L", name: "East — right of the Apple logo", pos: { x: 73, y: 33, w: 25, h: 34 } },
   ],
 
   areaOf: { big: 49, marquee: 70, snipe: 56, flank: 49 },
@@ -79,8 +79,8 @@ const DATA = {
   // false only to preview the seeded demo data on a prototype.
   live: true,
 
-  // Demo seed: gross ≈ A$9,560 — past the A$6,000 floor, tracking toward
-  // the A$16,640 target; the developer tops up any shortfall. Some of the 14
+  // Demo seed: gross ≈ A$6,400 — past the A$3,760 floor, tracking toward
+  // the A$10,517 target; the developer tops up any shortfall. Some of the 8
   // spots sold; the rest stay open.
   // (Ignored entirely when DATA.live === true.)
   seed: [
