@@ -39,7 +39,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 ## SEO & Meta
 - [ ] Verify `<title>` tag is descriptive and under 60 chars
 - [x] Check meta description is present and under 160 chars
-- [ ] Add Open Graph tags (`og:title`, `og:description`, `og:image`) if missing
+- [x] Add Open Graph tags (`og:title`, `og:description`, `og:image`) if missing
 - [ ] Add Twitter Card meta tags if missing
 - [x] Verify `robots.txt` exists and is correct
 - [ ] Verify `sitemap.xml` includes all pages
