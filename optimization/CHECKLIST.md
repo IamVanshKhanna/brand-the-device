@@ -61,7 +61,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Review meta-band text for clarity and impact
 
 ## Visual & UX
-- [ ] Verify lid grid renders correctly at 375px (mobile) width
+- [x] Verify lid grid renders correctly at 375px (mobile) width
 - [ ] Check that spot hover states work (cursor, opacity change)
 - [ ] Verify bid modal opens/closes cleanly on mobile
 - [x] Test dark mode toggle persists across page reloads
