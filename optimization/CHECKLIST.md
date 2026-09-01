@@ -87,7 +87,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Ensure refund logic triggers below floor (copy hardened: deposits held, refunds issued by founder by hand)
 - [ ] Check that live mode flag works (DATA.live = true/false)
 - [ ] Verify demo seed loads correctly when DATA.live = false
-- [ ] Test bid submission flow end-to-end (mock)
+- [x] Test bid submission flow end-to-end (mock)
 - [ ] Verify spot status updates propagate correctly
 - [ ] Check that target display matches DATA.spots[].target
 - [x] Ensure areaOf calculation matches spot dimensions
