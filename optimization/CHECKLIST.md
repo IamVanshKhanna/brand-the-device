@@ -5,7 +5,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 ## Code Quality
 - [ ] Remove any console.log statements left in production code (js/app.js, js/data.js)
 - [ ] Add `"use strict"` to any JS file missing it
-- [ ] Verify all HTML files pass W3C validator (no unclosed tags, proper nesting)
+- [x] Verify all HTML files pass W3C validator (no unclosed tags, proper nesting)
 - [ ] Check for and fix any CSS specificity issues (overly nested selectors)
 - [ ] Remove unused CSS classes (grep for class names in HTML, compare to CSS)
 - [ ] Remove dead code / commented-out blocks in JS files
@@ -50,7 +50,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 
 ## Copy & Content
 - [x] Read hero copy aloud — is it clear in under 5 seconds?
-- [ ] Check for typos/grammar across all HTML files
+- [x] Check for typos/grammar across all HTML files
 - [x] Verify all numbers are consistent (goal, floor, retail, spot count)
 - [ ] Ensure CTA buttons have action-oriented text
 - [ ] Check that FAQ answers are concise and accurate
