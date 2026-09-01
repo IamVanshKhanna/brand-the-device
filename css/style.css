@@ -395,6 +395,14 @@ p { margin: 10px 0; }
 .modal-card .agree input { width: auto; margin-top: 3px; flex: none; }
 .modal-card .agree a { color: var(--accent-2); }
 
+/* Visible keyboard focus indicator (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.skip-link:focus-visible { outline: 3px solid var(--accent); outline-offset: -1px; }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.85rem; color: var(--muted); }
 footer p { margin: 4px 0; }
