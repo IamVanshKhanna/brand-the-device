@@ -177,7 +177,7 @@
         if (!legendViews[s.view]) return;
         sizeMin[s.size] = sizeMin[s.size] ? Math.min(sizeMin[s.size], s.price) : s.price;
       });
-      var sizeLabel = { S: "Pad", M: "Banner", L: "Corner", XL: "Marquee" };
+      var sizeLabel = { S: "Square", M: "Banner", L: "Corner", XL: "Marquee" };
       ["XL", "L", "M", "S"].forEach(function (sz) {
         if (!sizeMin[sz]) return;
         var b = document.createElement("span");

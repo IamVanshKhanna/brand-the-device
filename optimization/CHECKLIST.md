@@ -68,12 +68,12 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Check that countdown timer displays correctly
 - [ ] Verify progress bars animate smoothly
 - [ ] Ensure spot list scrolls smoothly on mobile
-- [ ] Check that legend displays correctly with single tier
+- [x] Check that legend displays correctly with single tier
 - [ ] Verify deposit flow modal has clear copy
 - [ ] Test carousel swipe on touch devices (check JS touch events)
 
 ## Security
-- [ ] Verify no secrets/keys are exposed in client-side code (check data.js)
+- [x] Verify no secrets/keys are exposed in client-side code (check data.js)
 - [ ] Ensure Stripe key is publishable (pk_test_), not secret
 - [ ] Check that API calls use HTTPS (not HTTP)
 - [ ] Verify no inline `onclick` handlers with sensitive logic
