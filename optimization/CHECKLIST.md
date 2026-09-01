@@ -30,7 +30,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Add `role` attributes to interactive custom elements
 - [ ] Ensure all form inputs have associated `<label>` elements
 - [ ] Check keyboard navigation works for bid modal and carousel
-- [ ] Add `aria-live` regions for dynamic content (raised amount, bid updates)
+- [x] Add `aria-live` regions for dynamic content (raised amount, bid updates)
 - [ ] Verify focus indicators are visible on all interactive elements
 - [x] Add skip-to-content link at top of index.html
 - [ ] Ensure carousel has proper `aria-roledescription` and controls
