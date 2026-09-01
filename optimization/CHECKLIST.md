@@ -65,7 +65,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Check that spot hover states work (cursor, opacity change)
 - [ ] Verify bid modal opens/closes cleanly on mobile
 - [ ] Test dark mode toggle persists across page reloads
-- [ ] Check that countdown timer displays correctly
+- [x] Check that countdown timer displays correctly
 - [ ] Verify progress bars animate smoothly
 - [ ] Ensure spot list scrolls smoothly on mobile
 - [x] Check that legend displays correctly with single tier
@@ -90,4 +90,4 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Test bid submission flow end-to-end (mock)
 - [ ] Verify spot status updates propagate correctly
 - [ ] Check that target display matches DATA.spots[].target
-- [ ] Ensure areaOf calculation matches spot dimensions
+- [x] Ensure areaOf calculation matches spot dimensions

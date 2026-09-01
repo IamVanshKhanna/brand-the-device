@@ -335,8 +335,8 @@
     var s = Math.floor(diff / 1e3) % 60;
     var parts = [];
     if (d) parts.push(d + "d");
-    if (h || d) parts.push(h + "h");
-    parts.push(m + "m");
+    if (h) parts.push(h + "h");
+    if (m) parts.push(m + "m");
     parts.push(s + "s");
     el.innerHTML = "Auction closes in <b>" + parts.join(" ") + "</b> — get your bid in before it's snapped.";
   }
