@@ -55,7 +55,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Ensure CTA buttons have action-oriented text
 - [ ] Check that FAQ answers are concise and accurate
 - [ ] Verify terms.html references correct numbers and device specs
-- [ ] Verify press.html has accurate fact sheet
+- [x] Verify press.html has accurate fact sheet
 - [ ] Check privacy.html for completeness
 - [ ] Ensure marketplace.html waitlist flow is clear
 - [ ] Review meta-band text for clarity and impact
