@@ -67,7 +67,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Test dark mode toggle persists across page reloads
 - [x] Check that countdown timer displays correctly
 - [ ] Verify progress bars animate smoothly
-- [ ] Ensure spot list scrolls smoothly on mobile
+- [x] Ensure spot list scrolls smoothly on mobile
 - [x] Check that legend displays correctly with single tier
 - [ ] Verify deposit flow modal has clear copy
 - [ ] Test carousel swipe on touch devices (check JS touch events)
