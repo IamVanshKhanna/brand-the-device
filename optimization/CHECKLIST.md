@@ -64,7 +64,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Verify lid grid renders correctly at 375px (mobile) width
 - [ ] Check that spot hover states work (cursor, opacity change)
 - [ ] Verify bid modal opens/closes cleanly on mobile
-- [ ] Test dark mode toggle persists across page reloads
+- [x] Test dark mode toggle persists across page reloads
 - [x] Check that countdown timer displays correctly
 - [ ] Verify progress bars animate smoothly
 - [ ] Ensure spot list scrolls smoothly on mobile
