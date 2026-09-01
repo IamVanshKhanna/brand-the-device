@@ -49,7 +49,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Verify no duplicate content across pages
 
 ## Copy & Content
-- [ ] Read hero copy aloud — is it clear in under 5 seconds?
+- [x] Read hero copy aloud — is it clear in under 5 seconds?
 - [ ] Check for typos/grammar across all HTML files
 - [x] Verify all numbers are consistent (goal, floor, retail, spot count)
 - [ ] Ensure CTA buttons have action-oriented text
