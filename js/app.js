@@ -153,7 +153,7 @@
           el.style.height = s.pos.h + "%";
         }
         if (b) el.setAttribute("data-sponsor", b.sponsor);
-        var img = b && b.logo ? '<img class="spot-logo" src="' + b.logo + '" alt="">' : "";
+        var img = b && b.logo ? '<img class="spot-logo" src="' + escapeHtml(b.logo) + '" alt="">' : "";
         var tgt = " · target " + fmt(s.target);
         var meta = view === "final"
           ? '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm" + tgt + "</span>"

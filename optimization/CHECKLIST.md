@@ -78,7 +78,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Check that API calls use HTTPS (not HTTP)
 - [ ] Verify no inline `onclick` handlers with sensitive logic
 - [ ] Ensure CSP headers are set if possible (GitHub Pages may limit this)
-- [ ] Check for XSS vectors in user-supplied data (bidder names, logos)
+- [x] Check for XSS vectors in user-supplied data (bidder names, logos)
 
 ## Business Logic
 - [ ] Verify min-bid calculation is correct (current + increment)
