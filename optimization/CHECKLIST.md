@@ -84,7 +84,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Verify min-bid calculation is correct (current + increment)
 - [ ] Check that deposit amount is correct (20% of bid)
 - [ ] Verify outbid notification logic works
-- [ ] Ensure refund logic triggers below floor
+- [x] Ensure refund logic triggers below floor (copy hardened: deposits held, refunds issued by founder by hand)
 - [ ] Check that live mode flag works (DATA.live = true/false)
 - [ ] Verify demo seed loads correctly when DATA.live = false
 - [ ] Test bid submission flow end-to-end (mock)

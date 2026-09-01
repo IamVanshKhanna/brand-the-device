@@ -155,7 +155,7 @@ export default {
             "line_items[0][price_data][currency]": env.CURRENCY || "aud",
             "line_items[0][price_data][unit_amount]": String(depositCents),
             "line_items[0][price_data][product_data][name]": `20% deposit — ${sponsor} on ${spotId}`,
-            "line_items[0][price_data][product_data][description]": "Refundable auction deposit. Refunded in full if outbid; counts toward your total if you win.",
+            "line_items[0][price_data][product_data][description]": "Refundable auction deposit. The founder refunds it in full by hand if you're outbid or the floor isn't met; otherwise it counts toward your total if you win.",
             "submit_type": "pay",
             ...(bidderId ? { "metadata[bidder_id]": bidderId, "metadata[spot_id]": spotId } : {}),
           }),
