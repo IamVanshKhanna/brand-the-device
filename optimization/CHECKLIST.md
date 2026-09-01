@@ -44,7 +44,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Verify `robots.txt` exists and is correct
 - [ ] Verify `sitemap.xml` includes all pages
 - [ ] Add canonical URL `<link>` to all pages
-- [ ] Ensure structured data (JSON-LD) is valid and complete
+- [x] Ensure structured data (JSON-LD) is valid and complete
 - [ ] Check that all pages have unique `<title>` tags
 - [ ] Verify no duplicate content across pages
 
