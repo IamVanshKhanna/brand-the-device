@@ -12,7 +12,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Ensure all HTML `alt` attributes are non-empty on images
 - [ ] Add `lang="en"` attribute to all HTML files if missing
 - [ ] Verify all `<meta>` tags have proper charset and viewport
-- [ ] Check that all internal links resolve (no broken anchors)
+- [x] Check that all internal links resolve (no broken anchors)
 
 ## Performance
 - [ ] Minify inline JS in HTML files (remove unnecessary whitespace)
