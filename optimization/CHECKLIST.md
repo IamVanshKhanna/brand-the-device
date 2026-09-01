@@ -54,7 +54,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Verify all numbers are consistent (goal, floor, retail, spot count)
 - [ ] Ensure CTA buttons have action-oriented text
 - [ ] Check that FAQ answers are concise and accurate
-- [ ] Verify terms.html references correct numbers and device specs
+- [x] Verify terms.html references correct numbers and device specs
 - [x] Verify press.html has accurate fact sheet
 - [ ] Check privacy.html for completeness
 - [ ] Ensure marketplace.html waitlist flow is clear
