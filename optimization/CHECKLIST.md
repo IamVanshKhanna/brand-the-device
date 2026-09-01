@@ -57,7 +57,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Verify terms.html references correct numbers and device specs
 - [x] Verify press.html has accurate fact sheet
 - [ ] Check privacy.html for completeness
-- [ ] Ensure marketplace.html waitlist flow is clear
+- [x] Ensure marketplace.html waitlist flow is clear
 - [x] Review meta-band text for clarity and impact
 
 ## Visual & UX

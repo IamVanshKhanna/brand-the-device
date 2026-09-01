@@ -611,8 +611,8 @@
           note.textContent = res.error ? res.error : "You're on the list — notified at launch.";
           note.style.color = res.error ? "var(--red)" : "var(--green)";
         }).catch(function () {
-          note.textContent = "Saved — we'll confirm by email at launch.";
-          note.style.color = "var(--green)";
+          note.textContent = "Couldn't reach the server — try again in a moment.";
+          note.style.color = "var(--red)";
         });
       } else {
         note.textContent = "Thanks! " + email + " is on the list — we'll notify you at launch.";
