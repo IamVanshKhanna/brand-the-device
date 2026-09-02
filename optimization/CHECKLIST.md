@@ -3,15 +3,15 @@
 Each hour, pick ONE unchecked item from this list, implement it, check it off, and log it in TRACKING.md. Never skip items. Never do two at once. Never modify something that's already been checked off (unless it's a regression fix).
 
 ## Code Quality
-- [ ] Remove any console.log statements left in production code (js/app.js, js/data.js)
-- [ ] Add `"use strict"` to any JS file missing it
+- [x] Remove any console.log statements left in production code (js/app.js, js/data.js)
+- [x] Add `"use strict"` to any JS file missing it
 - [x] Verify all HTML files pass W3C validator (no unclosed tags, proper nesting)
 - [ ] Check for and fix any CSS specificity issues (overly nested selectors)
 - [ ] Remove unused CSS classes (grep for class names in HTML, compare to CSS)
-- [ ] Remove dead code / commented-out blocks in JS files
-- [ ] Ensure all HTML `alt` attributes are non-empty on images
-- [ ] Add `lang="en"` attribute to all HTML files if missing
-- [ ] Verify all `<meta>` tags have proper charset and viewport
+- [x] Remove dead code / commented-out blocks in JS files
+- [x] Ensure all HTML `alt` attributes are non-empty on images
+- [x] Add `lang="en"` attribute to all HTML files if missing
+- [x] Verify all `<meta>` tags have proper charset and viewport
 - [x] Check that all internal links resolve (no broken anchors)
 
 ## Performance
@@ -25,9 +25,9 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [ ] Verify image formats are optimal (SVG for icons, WebP if applicable)
 
 ## Accessibility
-- [ ] Add `aria-label` to icon-only buttons (bid buttons, carousel controls)
+- [x] Add `aria-label` to icon-only buttons (bid buttons, carousel controls)
 - [ ] Verify color contrast ratios meet WCAG AA (4.5:1 for text)
-- [ ] Add `role` attributes to interactive custom elements
+- [x] Add `role` attributes to interactive custom elements
 - [ ] Ensure all form inputs have associated `<label>` elements
 - [ ] Check keyboard navigation works for bid modal and carousel
 - [x] Add `aria-live` regions for dynamic content (raised amount, bid updates)
@@ -52,7 +52,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Read hero copy aloud — is it clear in under 5 seconds?
 - [x] Check for typos/grammar across all HTML files
 - [x] Verify all numbers are consistent (goal, floor, retail, spot count)
-- [ ] Ensure CTA buttons have action-oriented text
+- [x] Ensure CTA buttons have action-oriented text
 - [ ] Check that FAQ answers are concise and accurate
 - [x] Verify terms.html references correct numbers and device specs
 - [x] Verify press.html has accurate fact sheet
@@ -63,7 +63,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 ## Visual & UX
 - [x] Verify lid grid renders correctly at 375px (mobile) width
 - [ ] Check that spot hover states work (cursor, opacity change)
-- [ ] Verify bid modal opens/closes cleanly on mobile
+- [x] Verify bid modal opens/closes cleanly on mobile
 - [x] Test dark mode toggle persists across page reloads
 - [x] Check that countdown timer displays correctly
 - [ ] Verify progress bars animate smoothly
@@ -83,7 +83,7 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 ## Business Logic
 - [ ] Verify min-bid calculation is correct (current + increment)
 - [ ] Check that deposit amount is correct (20% of bid)
-- [ ] Verify outbid notification logic works
+- [x] Verify outbid notification logic works
 - [x] Ensure refund logic triggers below floor (copy hardened: deposits held, refunds issued by founder by hand)
 - [ ] Check that live mode flag works (DATA.live = true/false)
 - [ ] Verify demo seed loads correctly when DATA.live = false

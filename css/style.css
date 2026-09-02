@@ -336,9 +336,10 @@ p { margin: 10px 0; }
 .modal {
   position: fixed; inset: 0; z-index: 50; background: rgba(8, 11, 15, 0.7);
   display: flex; align-items: center; justify-content: center; padding: 20px;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .modal.hidden { display: none; }
-.modal-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; width: min(460px, 100%); position: relative; box-shadow: var(--shadow); }
+.modal-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; width: min(460px, 100%); position: relative; box-shadow: var(--shadow); margin: auto; }
 .modal-close { position: absolute; top: 12px; right: 14px; background: none; border: none; color: var(--muted); font-size: 1.5rem; cursor: pointer; }
 .modal-card label { display: block; margin: 14px 0 6px; font-size: 0.82rem; color: var(--muted); }
 .modal-card input { width: 100%; margin-top: 5px; padding: 11px 12px; background: var(--bg-soft); color: var(--text); border: 1px solid var(--line); border-radius: 10px; font-size: 0.95rem; }
