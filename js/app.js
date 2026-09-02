@@ -342,6 +342,7 @@
   }
 
   /* ---------- hero activity ticker ---------- */
+  var stickyTickerUntil = 0;
   function ago(ts) {
     var mins = Math.max(1, Math.round((Date.now() - ts) / 60000));
     if (mins < 60) return mins + "m ago";
@@ -352,6 +353,7 @@
   function renderTicker() {
     var el = document.getElementById("ticker");
     if (!el) return;
+    if (Date.now() < stickyTickerUntil) return;
     if (!bidHistory.length) { el.innerHTML = ""; return; }
     var h = bidHistory[bidHistory.length - 1];
     var s = spotById(h.spotId);
@@ -732,8 +734,11 @@
       }).then(function (r) { return r.json(); }).then(function (res) {
         var note = document.getElementById("ticker");
         if (note) {
-          if (res.ok) note.innerHTML = "✓ Deposit received — your bid on <b>" + spotId + "</b> is now live.";
-          else note.innerHTML = "Deposit confirmation issue: " + (res.error || "unknown") + ". Your bid may still be processing.";
+          if (res.ok) {
+            note.innerHTML = "✓ Deposit received — your bid on <b>" + escapeHtml(spotId) + "</b> is now live.";
+            stickyTickerUntil = Date.now() + 8000;
+          }
+          else note.innerHTML = "Deposit confirmation issue: " + escapeHtml(res.error || "unknown") + ". Your bid may still be processing.";
         }
         refreshFromApi();
       }).catch(function () {
