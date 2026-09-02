@@ -574,7 +574,12 @@
             body: JSON.stringify({ amount: amount, spotId: spot.id, sponsor: sponsor, email: email, bidderId: res.bidderId }),
           }).then(function (r) { return r.json(); }).then(function (dep) {
             if (dep.checkoutUrl) window.location.href = dep.checkoutUrl;
-            else { btn.textContent = "Place bid — pay 20% deposit"; alert("Bid placed! Deposit link will be emailed to you."); }
+            else {
+              btn.textContent = "Place bid — pay 20% deposit";
+              alert(dep.error
+                ? "Bid placed, but the deposit step failed: " + dep.error + " Reopen the spot to retry payment."
+                : "Bid placed, but the deposit link wasn't created. Reopen the spot to retry payment.");
+            }
           }).catch(function () { btn.textContent = "Place bid — pay 20% deposit"; });
         } else {
           btn.textContent = "Place bid — pay 20% deposit";
