@@ -57,6 +57,7 @@ export default {
         }
         if (!/^[A-E][1-8]$/.test(spotId)) return json({ error: "Invalid spot." }, 400);
         if (sponsor.length > 80 || (bidUrl && bidUrl.length > 200)) return json({ error: "Input too long." }, 400);
+        if (typeof logo !== "string" || logo.length > 400000) return json({ error: "Logo file too large." }, 400);
         if (!/.+@.+\..+/.test(email)) return json({ error: "Invalid email." }, 400);
 
         const closeTs = Date.parse(env.AUCTION_CLOSE || "2099-12-31T00:00:00Z");
