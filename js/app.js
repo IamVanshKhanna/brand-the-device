@@ -374,7 +374,7 @@
         var nameHtml = b.url
           ? '<a href="' + escapeHtml(b.url) + '" target="_blank" rel="noopener">' + escapeHtml(b.sponsor) + "</a>"
           : escapeHtml(b.sponsor);
-        var logoHtml = b.logo ? '<img class="sl-logo" src="' + b.logo + '" alt="">' : "";
+        var logoHtml = b.logo ? '<img class="sl-logo" loading="lazy" src="' + escapeHtml(b.logo) + '" alt="">' : "";
         bidHtml = fmt(b.amount) + "<small>" + logoHtml + nameHtml +
           ' <span class="sl-count">· ' + (counts[s.id] || 1) + " bid" + ((counts[s.id] || 1) === 1 ? "" : "s") + "</span></small>";
       } else {

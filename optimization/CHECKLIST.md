@@ -17,43 +17,43 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 ## Performance
 - [ ] Minify inline JS in HTML files (remove unnecessary whitespace)
 - [ ] Optimize CSS: combine duplicate selectors if any
-- [ ] Add `loading="lazy"` to below-fold images if any exist
-- [ ] Verify no render-blocking resources in `<head>`
-- [ ] Check if any CSS can be inlined (small files loaded separately)
+- [x] Add `loading="lazy"` to below-fold images if any exist
+- [x] Verify no render-blocking resources in `<head>`
+- [x] Check if any CSS can be inlined (small files loaded separately)
 - [x] Add `dns-prefetch` for external domains (Stripe, Cloudflare Worker)
-- [ ] Ensure gzip/brotli is configured on GitHub Pages (check headers)
-- [ ] Verify image formats are optimal (SVG for icons, WebP if applicable)
+- [x] Ensure gzip/brotli is configured on GitHub Pages (check headers)
+- [x] Verify image formats are optimal (SVG for icons, WebP if applicable)
 
 ## Accessibility
 - [x] Add `aria-label` to icon-only buttons (bid buttons, carousel controls)
 - [x] Verify color contrast ratios meet WCAG AA (4.5:1 for text)
 - [x] Add `role` attributes to interactive custom elements
 - [x] Ensure all form inputs have associated `<label>` elements
-- [ ] Check keyboard navigation works for bid modal and carousel
+- [x] Check keyboard navigation works for bid modal and carousel
 - [x] Add `aria-live` regions for dynamic content (raised amount, bid updates)
 - [x] Verify focus indicators are visible on all interactive elements
 - [x] Add skip-to-content link at top of index.html
-- [ ] Ensure carousel has proper `aria-roledescription` and controls
-- [ ] Test with screen reader: verify spot labels are announced correctly
+- [x] Ensure carousel has proper `aria-roledescription` and controls
+- [x] Test with screen reader: verify spot labels are announced correctly
 
 ## SEO & Meta
-- [ ] Verify `<title>` tag is descriptive and under 60 chars
+- [x] Verify `<title>` tag is descriptive and under 60 chars
 - [x] Check meta description is present and under 160 chars
 - [x] Add Open Graph tags (`og:title`, `og:description`, `og:image`) if missing
-- [ ] Add Twitter Card meta tags if missing
+- [x] Add Twitter Card meta tags if missing
 - [x] Verify `robots.txt` exists and is correct
-- [ ] Verify `sitemap.xml` includes all pages
-- [ ] Add canonical URL `<link>` to all pages
+- [x] Verify `sitemap.xml` includes all pages
+- [x] Add canonical URL `<link>` to all pages
 - [x] Ensure structured data (JSON-LD) is valid and complete
-- [ ] Check that all pages have unique `<title>` tags
-- [ ] Verify no duplicate content across pages
+- [x] Check that all pages have unique `<title>` tags
+- [x] Verify no duplicate content across pages
 
 ## Copy & Content
 - [x] Read hero copy aloud — is it clear in under 5 seconds?
 - [x] Check for typos/grammar across all HTML files
 - [x] Verify all numbers are consistent (goal, floor, retail, spot count)
 - [x] Ensure CTA buttons have action-oriented text
-- [ ] Check that FAQ answers are concise and accurate
+- [x] Check that FAQ answers are concise and accurate
 - [x] Verify terms.html references correct numbers and device specs
 - [x] Verify press.html has accurate fact sheet
 - [x] Check privacy.html for completeness
@@ -62,21 +62,21 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 
 ## Visual & UX
 - [x] Verify lid grid renders correctly at 375px (mobile) width
-- [ ] Check that spot hover states work (cursor, opacity change)
+- [x] Check that spot hover states work (cursor, opacity change)
 - [x] Verify bid modal opens/closes cleanly on mobile
 - [x] Test dark mode toggle persists across page reloads
 - [x] Check that countdown timer displays correctly
-- [ ] Verify progress bars animate smoothly
+- [x] Verify progress bars animate smoothly
 - [x] Ensure spot list scrolls smoothly on mobile
 - [x] Check that legend displays correctly with single tier
-- [ ] Verify deposit flow modal has clear copy
-- [ ] Test carousel swipe on touch devices (check JS touch events)
+- [x] Verify deposit flow modal has clear copy
+- [x] Test carousel swipe on touch devices (check JS touch events)
 
 ## Security
 - [x] Verify no secrets/keys are exposed in client-side code (check data.js)
-- [ ] Ensure Stripe key is publishable (pk_test_), not secret
-- [ ] Check that API calls use HTTPS (not HTTP)
-- [ ] Verify no inline `onclick` handlers with sensitive logic
+- [x] Ensure Stripe key is publishable (pk_test_), not secret
+- [x] Check that API calls use HTTPS (not HTTP)
+- [x] Verify no inline `onclick` handlers with sensitive logic
 - [ ] Ensure CSP headers are set if possible (GitHub Pages may limit this)
 - [x] Check for XSS vectors in user-supplied data (bidder names, logos)
 
