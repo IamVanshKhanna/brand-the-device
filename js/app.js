@@ -158,11 +158,14 @@
         var meta = view === "final"
           ? '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm" + tgt + "</span>"
           : '<span class="cm">' + s.size + " · " + s.w + "×" + s.h + " cm · " + DATA.areaOf[s.type] + " cm²" + tgt + "</span>";
+        el.setAttribute("aria-label", "Bid on spot " + s.name + (b ? " — current top bid " + fmt(b.amount) : " — from " + fmt(s.price)));
         el.innerHTML =
+          '<span aria-hidden="true">' +
           img +
           '<span class="price">' + fmt(s.price) + "</span>" +
           '<span class="name">' + s.name + "</span>" +
-          meta;
+          meta +
+          "</span>";
         el.addEventListener("click", function () { openModal(s); });
         grid.appendChild(el);
       });
