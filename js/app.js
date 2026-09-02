@@ -219,21 +219,23 @@
   document.getElementById("carouselNext").addEventListener("click", function () { carouselShow(carouselIdx + 1); });
   carouselShow(0);
 
-  /* swipe / drag support (copy promises "swipe") — pointer events cover touch + mouse */
+  /* swipe / drag support (copy promises "swipe") — pointer events cover touch + mouse + pen */
   (function () {
     var startX = null, startY = null, tracking = false;
-    function down(x, y) { startX = x; startY = y; tracking = true; }
-    function up(x, y) {
+    carouselTrack.addEventListener("pointerdown", function (e) {
+      startX = e.clientX; startY = e.clientY; tracking = true;
+    }, { passive: true });
+    carouselTrack.addEventListener("pointermove", function (e) {
+      if (!tracking || startX === null) return;
+      if (Math.abs(e.clientX - startX) > 12) e.preventDefault();
+    }, { passive: false });
+    carouselTrack.addEventListener("pointerup", function (e) {
       if (!tracking || startX === null) { tracking = false; return; }
-      var dx = x - startX, dy = y - startY;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
       tracking = false;
       if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return; // not a horizontal swipe
       carouselShow(carouselIdx + (dx < 0 ? 1 : -1));
-    }
-    carouselTrack.addEventListener("touchstart", function (e) { var t = e.touches[0]; down(t.clientX, t.clientY); }, { passive: true });
-    carouselTrack.addEventListener("touchend", function (e) { var t = e.changedTouches[0]; up(t.clientX, t.clientY); });
-    carouselTrack.addEventListener("pointerdown", function (e) { down(e.clientX, e.clientY); });
-    carouselTrack.addEventListener("pointerup", function (e) { up(e.clientX, e.clientY); });
+    });
     carouselTrack.addEventListener("pointercancel", function () { tracking = false; });
   })();
 
