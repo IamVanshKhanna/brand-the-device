@@ -434,6 +434,12 @@
   var logoData = null; // validated dataURL waiting to be submitted
 
   function openModal(spot) {
+    if (new Date(DATA.closing).getTime() <= Date.now()) {
+      var tickEl = document.getElementById("ticker");
+      if (tickEl) tickEl.textContent = "This auction has closed — no more bids. The final look is logged below.";
+      stickyTickerUntil = Date.now() + 8000;
+      return;
+    }
     activeSpot = spot;
     logoData = null;
     var b = bids[spot.id];
