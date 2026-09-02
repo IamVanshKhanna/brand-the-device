@@ -119,6 +119,7 @@ p { margin: 10px 0; }
 .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
 .btn.block { width: 100%; }
 .btn:hover { filter: brightness(1.06); }
+.btn:disabled { opacity: 0.5; filter: grayscale(0.3); cursor: not-allowed; }
 
 /* Hero */
 .hero { padding-top: 56px; text-align: left; }

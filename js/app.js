@@ -450,6 +450,7 @@
     document.getElementById("bidLogo").value = "";
     var agree = document.getElementById("bidAgree");
     if (agree) agree.checked = false;
+    document.getElementById("bidSubmit").disabled = true;
     var preview = document.getElementById("logoPreview");
     preview.classList.add("hidden");
     preview.removeAttribute("src");
@@ -526,6 +527,11 @@
   (function () {
     var submitBtn = document.getElementById("bidSubmit");
     var note = submitBtn ? submitBtn.nextElementSibling : null;
+    var agree = document.getElementById("bidAgree");
+    if (submitBtn) submitBtn.disabled = true;
+    if (agree) agree.addEventListener("change", function () {
+      if (submitBtn) submitBtn.disabled = !this.checked;
+    });
     if (DATA.stripePublicKey && submitBtn) {
       submitBtn.textContent = "Place bid — pay 20% deposit";
       if (note) note.textContent = "You'll be charged a 20% refundable deposit. The founder refunds it in full if you're outbid; otherwise it counts toward your total.";
