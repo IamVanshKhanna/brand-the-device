@@ -6,8 +6,8 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Remove any console.log statements left in production code (js/app.js, js/data.js)
 - [x] Add `"use strict"` to any JS file missing it
 - [x] Verify all HTML files pass W3C validator (no unclosed tags, proper nesting)
-- [ ] Check for and fix any CSS specificity issues (overly nested selectors)
-- [ ] Remove unused CSS classes (grep for class names in HTML, compare to CSS)
+- [x] Check for and fix any CSS specificity issues (overly nested selectors)
+- [x] Remove unused CSS classes (grep for class names in HTML, compare to CSS)
 - [x] Remove dead code / commented-out blocks in JS files
 - [x] Ensure all HTML `alt` attributes are non-empty on images
 - [x] Add `lang="en"` attribute to all HTML files if missing
@@ -26,9 +26,9 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 
 ## Accessibility
 - [x] Add `aria-label` to icon-only buttons (bid buttons, carousel controls)
-- [ ] Verify color contrast ratios meet WCAG AA (4.5:1 for text)
+- [x] Verify color contrast ratios meet WCAG AA (4.5:1 for text)
 - [x] Add `role` attributes to interactive custom elements
-- [ ] Ensure all form inputs have associated `<label>` elements
+- [x] Ensure all form inputs have associated `<label>` elements
 - [ ] Check keyboard navigation works for bid modal and carousel
 - [x] Add `aria-live` regions for dynamic content (raised amount, bid updates)
 - [x] Verify focus indicators are visible on all interactive elements
@@ -81,13 +81,13 @@ Each hour, pick ONE unchecked item from this list, implement it, check it off, a
 - [x] Check for XSS vectors in user-supplied data (bidder names, logos)
 
 ## Business Logic
-- [ ] Verify min-bid calculation is correct (current + increment)
-- [ ] Check that deposit amount is correct (20% of bid)
+- [x] Verify min-bid calculation is correct (current + increment)
+- [x] Check that deposit amount is correct (20% of bid)
 - [x] Verify outbid notification logic works
 - [x] Ensure refund logic triggers below floor (copy hardened: deposits held, refunds issued by founder by hand)
-- [ ] Check that live mode flag works (DATA.live = true/false)
-- [ ] Verify demo seed loads correctly when DATA.live = false
+- [x] Check that live mode flag works (DATA.live = true/false)
+- [x] Verify demo seed loads correctly when DATA.live = false
 - [x] Test bid submission flow end-to-end (mock)
-- [ ] Verify spot status updates propagate correctly
-- [ ] Check that target display matches DATA.spots[].target
+- [x] Verify spot status updates propagate correctly
+- [x] Check that target display matches DATA.spots[].target
 - [x] Ensure areaOf calculation matches spot dimensions

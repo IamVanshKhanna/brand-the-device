@@ -25,4 +25,5 @@ STRIPE_PUBLISHABLE = "pk_test_51UA1WNHMepf4cgbYy2mrDGafo9rB5BZ1RamPvqrKSWkiLWSuy
 CORS_ORIGIN = "https://notghostingyou.xyz"
 AUCTION_CLOSE = "2026-09-30T20:00:00Z"
 DEPOSIT_PCT = 20            # % of bid held as refundable deposit
+SPOT_PRICE = 140            # floor price for an unbidden spot (must match frontend js/data.js spot.price)
 CURRENCY = "aud"

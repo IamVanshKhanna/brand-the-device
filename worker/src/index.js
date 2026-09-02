@@ -64,7 +64,8 @@ export default {
           "SELECT amount FROM bids WHERE spot_id = ? AND status = 'active'"
         ).bind(spotId).all();
         const currentTop = (minRows && minRows[0] && minRows[0].amount) || 0;
-        const minBid = currentTop ? currentTop + 10 : 100;
+        const floor = Number(env.SPOT_PRICE) || 140;
+        const minBid = currentTop ? currentTop + 10 : floor;
         if (amount < minBid) {
           return json({ error: `Minimum bid is A$${minBid}.` }, 409);
         }
