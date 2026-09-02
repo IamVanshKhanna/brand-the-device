@@ -55,6 +55,8 @@ export default {
         if (!spotId || !sponsor || !amount || !email || !logo) {
           return json({ error: "Missing required fields." }, 400);
         }
+        if (!/^[A-E][1-8]$/.test(spotId)) return json({ error: "Invalid spot." }, 400);
+        if (sponsor.length > 80 || (bidUrl && bidUrl.length > 200)) return json({ error: "Input too long." }, 400);
         if (!/.+@.+\..+/.test(email)) return json({ error: "Invalid email." }, 400);
 
         const closeTs = Date.parse(env.AUCTION_CLOSE || "2099-12-31T00:00:00Z");
@@ -107,6 +109,7 @@ export default {
         const body = await request.json();
         const { spotId, bidderId } = body;
         if (!spotId || !bidderId) return json({ error: "Missing spotId or bidderId." }, 400);
+        if (!/^[A-E][1-8]$/.test(spotId)) return json({ error: "Invalid spot." }, 400);
 
         const row = await env.DB.prepare(
           "SELECT bidder_id, status FROM bids WHERE spot_id = ?"
@@ -125,6 +128,7 @@ export default {
 
       if (path.startsWith("/logo/") && method === "GET") {
         const spotId = path.slice(6);
+        if (!/^[A-E][1-8]$/.test(spotId)) return json({ error: "No logo." }, 404);
         const row = await env.DB.prepare(
           "SELECT logo_data FROM bids WHERE spot_id = ? AND status = 'active'"
         ).bind(spotId).first();
@@ -137,6 +141,9 @@ export default {
       if (path === "/deposit" && method === "POST") {
         const { amount, spotId, sponsor, email: custEmail, bidderId } = await request.json();
         if (!amount || amount < 100) return json({ error: "Invalid amount." }, 400);
+        if (!/^[A-E][1-8]$/.test(spotId)) return json({ error: "Invalid spot." }, 400);
+        if (typeof sponsor !== "string" || sponsor.length > 80) return json({ error: "Invalid sponsor." }, 400);
+        if (bidderId && bidderId.length > 64) return json({ error: "Invalid bidder." }, 400);
         const depositDollars = Math.round(amount * (env.DEPOSIT_PCT || 20) / 100);
         const depositCents = depositDollars * 100;
         const siteUrl = env.CORS_ORIGIN || "https://notghostingyou.xyz";
