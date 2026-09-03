@@ -68,14 +68,19 @@
         e.preventDefault();
         var email = document.getElementById("waitlistEmail").value.trim();
         var note = document.getElementById("waitlistNote");
-        if (!email) { note.textContent = "Drop an email above and you're in."; return; }
+        if (!email) { note.textContent = "Drop an email above and you're in."; note.style.color = ""; return; }
         fetch(API + "/waitlist", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: email }),
         }).then(function (r) { return r.json(); }).then(function (res) {
-          note.textContent = res.error ? res.error : "You're on the list — notified at launch.";
-          note.style.color = "var(--green)";
+          if (res.error) {
+            note.textContent = res.error;
+            note.style.color = "var(--red)";
+          } else {
+            note.textContent = "You're on the list — notified at launch.";
+            note.style.color = "var(--green)";
+          }
         }).catch(function () {
           note.textContent = "Couldn't reach the server — try again in a moment.";
           note.style.color = "var(--red)";
