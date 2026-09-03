@@ -28,13 +28,22 @@
 
   /* ---------- theme ---------- */
   var savedTheme = store.getItem(THEME_KEY) || "light";
+  function setThemeUI(t) {
+    var dark = t === "dark";
+    var btn = document.getElementById("themeToggle");
+    if (!btn) return;
+    btn.textContent = dark ? "☀️" : "🌙";
+    btn.setAttribute("aria-pressed", String(dark));
+    btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    btn.setAttribute("title", dark ? "Switch to light theme" : "Switch to dark theme");
+  }
   document.documentElement.setAttribute("data-theme", savedTheme);
-  document.getElementById("themeToggle").textContent = savedTheme === "dark" ? "☀️" : "🌙";
+  setThemeUI(savedTheme);
   document.getElementById("themeToggle").addEventListener("click", function () {
     var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     store.setItem(THEME_KEY, next);
-    this.textContent = next === "dark" ? "☀️" : "🌙";
+    setThemeUI(next);
   });
 
   /* ---------- seed state (bids + organic-looking history) ----------
