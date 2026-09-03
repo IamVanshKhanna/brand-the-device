@@ -105,6 +105,25 @@
     return ccy === "USD" ? Math.round(n * FX) : n;
   }
 
+  // Parse a user-typed amount, correctly handling both "," and "." separators:
+  // "1,500" -> 1500 (thousands), "1.5" and "1,5" -> 1.5 (decimal). Returns null when invalid.
+  function parseAmount(s) {
+    s = String(s).trim();
+    if (!/^\d[\d.,]*$/.test(s)) return null;
+    var n;
+    if (s.indexOf(",") !== -1 && s.indexOf(".") === -1) {
+      var parts = s.split(",");
+      if (parts.length !== 2) return null;
+      if (parts[1].length === 3) n = parseInt(parts[0], 10) * 1000 + parseInt(parts[1], 10); // thousands
+      else n = parseFloat(parts[0] + "." + parts[1]); // decimal
+    } else {
+      if (s.indexOf(".") >= 0 && s.indexOf(",") >= 0) return null; // mixed separators
+      if (s.split(".").length > 2) return null; // more than one decimal point
+      n = parseFloat(s);
+    }
+    return isNaN(n) || !isFinite(n) ? null : n;
+  }
+
   function ccyLabel() { return ccy === "USD" ? "USD" : "AUD"; }
   function toAud(n) { return ccy === "USD" ? n / FX : n; }
 
@@ -557,8 +576,8 @@
     if (!sponsor) { alert("Enter a sponsor / company name."); return; }
     var agree = document.getElementById("bidAgree");
     if (agree && !agree.checked) { alert("Please agree to the Terms and Privacy policy to place a bid."); return; }
-    var parsed = parseFloat(rawAmount);
-    if (!/^\d+([.,]\d+)?$/.test(rawAmount)) { alert("Enter a bid amount."); return; }
+    var parsed = parseAmount(rawAmount);
+    if (parsed === null) { alert("Enter a bid amount."); return; }
     var amount = Math.round(toAud(parsed)); // always settle in AUD
     if (!amount || isNaN(amount)) { alert("Enter a bid amount."); return; }
     var current = bids[activeSpot.id];
