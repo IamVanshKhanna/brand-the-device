@@ -408,3 +408,17 @@ p { margin: 10px 0; }
 /* Footer */
 footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.85rem; color: var(--muted); }
 footer p { margin: 4px 0; }
+
+/* Respect motion-sensitivity preferences (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .spot:hover { transform: none; }
+  .spot { transition: none; }
+}
