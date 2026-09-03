@@ -233,7 +233,9 @@
     });
     var dots = dotsWrap.children;
     for (var k = 0; k < dots.length; k++) {
-      dots[k].classList.toggle("on", k === carouselIdx);
+      var on = k === carouselIdx;
+      dots[k].classList.toggle("on", on);
+      dots[k].setAttribute("aria-pressed", String(on));
     }
   }
 
